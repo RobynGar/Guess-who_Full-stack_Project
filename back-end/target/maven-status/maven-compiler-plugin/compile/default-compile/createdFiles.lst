@@ -1,0 +1,11 @@
+com/bnta/characters/CharacterDAO.class
+com/bnta/characters/Character.class
+com/bnta/users/UserDAO.class
+com/bnta/Main.class
+com/bnta/users/UseService.class
+com/bnta/characters/CharacterController.class
+com/bnta/users/User.class
+com/bnta/characters/CharacterDAS.class
+com/bnta/users/UserController.class
+com/bnta/characters/CharacterService.class
+com/bnta/users/UserDAS.class
