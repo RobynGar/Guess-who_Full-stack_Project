@@ -54,6 +54,14 @@ public Character (Integer id, String name, String gender, String hairColour, Str
         this.name = name;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getHairColour() {
         return hairColour;
     }

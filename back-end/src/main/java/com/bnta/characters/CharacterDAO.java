@@ -3,6 +3,11 @@ package com.bnta.characters;
 import java.util.List;
 
 public interface CharacterDAO {
+
+//    int createPersonalisedTable();
+
+//    int addCharacter(Character character);
+
     List<Character> getAllCharacters();
 
     Character getCharacterById(Integer id);

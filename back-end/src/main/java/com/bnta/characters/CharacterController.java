@@ -36,7 +36,7 @@ public class CharacterController {
     }
 
     //get character by hair colour, etc
-    @GetMapping("features/{hair}")
+    @GetMapping("features/hair/{hair}")
     public List<Character> getCharacterByHair(@PathVariable("hair") String hair) {
         return characterService.getCharacterByHair(hair);
     }
@@ -54,7 +54,7 @@ public class CharacterController {
     }
 
     //eye colour
-    @GetMapping("features/{eyeColour}")
+    @GetMapping("features/eyeColour/{eyeColour}")
     public List<Character> getCharacterByEyeColour(@PathVariable("eyeColour") String eyeColour) {
         return characterService.getCharacterByEyeColour(eyeColour);
     }
@@ -102,11 +102,12 @@ public class CharacterController {
     }
 
     //    top colour
-    @GetMapping("features/{topColour}")
+    @GetMapping("features/topColour/{topColour}")
     public List<Character> getCharacterByTopColour(@PathVariable("topColour") String topColour) {
         return characterService.getCharacterByTopColour(topColour);
     }
-//add character
+
+    //add character
 
 //update character
 //delete character
