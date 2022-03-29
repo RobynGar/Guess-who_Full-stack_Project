@@ -27,7 +27,39 @@ public class CharacterService {
         return null;
     }
 
-    public Character getCharacterByGlasses(String glasses) {
+    public List<Character> getCharacterByEyeColour(String eyeColour) {
+        return null;
+    }
+
+    public List<Character> getCharacterByGlasses() {
+        return null;
+    }
+
+    public List<Character> getCharacterByPiercings() {
+        return null;
+    }
+
+    public List<Character> getCharacterByBeard() {
+        return null;
+    }
+
+    public List<Character> getCharacterByMoustache() {
+        return null;
+    }
+
+    public List<Character> getCharacterByIsLondon() {
+        return null;
+    }
+
+    public List<Character> getCharacterByPets() {
+        return null;
+    }
+
+    public List<Character> getCharacterByHairAccessory() {
+        return null;
+    }
+
+    public List<Character> getCharacterByTopColour(String topColour) {
         return null;
     }
 }

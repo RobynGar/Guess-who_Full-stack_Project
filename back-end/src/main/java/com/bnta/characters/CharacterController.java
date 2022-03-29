@@ -53,21 +53,59 @@ public class CharacterController {
         return characterService.getCharacterByName(name);
     }
 
-    //glasses
-    @GetMapping("features/{glasses}")
-    public Character getCharacterByGlasses(@PathVariable("glasses") String glasses) {
-        return characterService.getCharacterByGlasses(glasses);
+    //eye colour
+    @GetMapping("features/{eyeColour}")
+    public List<Character> getCharacterByEyeColour(@PathVariable("eyeColour") String eyeColour) {
+        return characterService.getCharacterByEyeColour(eyeColour);
     }
 
+    //glasses
+    @GetMapping("features/glasses")
+    public List<Character> getCharacterByGlasses() {
+        return characterService.getCharacterByGlasses();
+    }
 
+    //piercing
+    @GetMapping("features/piercings")
+    public List<Character> getCharacterByPiercings() {
+        return characterService.getCharacterByPiercings();
+    }
 
-//piercings
-//  beard
-//    moustache
-//    london?
-//    pet
-//    hair accessory
-//    top colour
+    //  beard
+    @GetMapping("features/beard")
+    public List<Character> getCharacterByBeard() {
+        return characterService.getCharacterByBeard();
+    }
+
+    //    moustache
+    @GetMapping("features/moustache")
+    public List<Character> getCharacterByMoustache() {
+        return characterService.getCharacterByMoustache();
+    }
+
+    //    london?
+    @GetMapping("features/london")
+    public List<Character> getCharacterByIsLondon() {
+        return characterService.getCharacterByIsLondon();
+    }
+
+    //    pets
+    @GetMapping("features/pets")
+    public List<Character> getCharacterByPets() {
+        return characterService.getCharacterByPets();
+    }
+
+    //    hair accessory
+    @GetMapping("features/hairAccessory")
+    public List<Character> getCharacterByHairAccessory() {
+        return characterService.getCharacterByHairAccessory();
+    }
+
+    //    top colour
+    @GetMapping("features/{topColour}")
+    public List<Character> getCharacterByTopColour(@PathVariable("topColour") String topColour) {
+        return characterService.getCharacterByTopColour(topColour);
+    }
 //add character
 
 //update character
