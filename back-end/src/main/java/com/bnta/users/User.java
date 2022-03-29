@@ -7,12 +7,12 @@ public class User {
     // isAI boolean
 
     private Integer id;
-    private String name;
+    private String userName;
     private Integer wins;
 
-    public User(Integer id, String name, Integer wins) {
+    public User(Integer id, String userName, Integer wins) {
         this.id = id;
-        this.name = name;
+        this.userName = userName;
         this.wins = wins;
     }
 
@@ -28,12 +28,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Integer getWins() {
@@ -48,7 +48,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
                 ", wins=" + wins +
                 '}';
     }
@@ -58,12 +58,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(wins, user.wins);
+        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName) && Objects.equals(wins, user.wins);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, wins);
+        return Objects.hash(id, userName, wins);
     }
-    
 }
