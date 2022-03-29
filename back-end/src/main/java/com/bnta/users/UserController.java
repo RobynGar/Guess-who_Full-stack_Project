@@ -22,9 +22,21 @@ public class UserController {
 
     //Add user
     @PostMapping()
-    public Integer addUser(@RequestBody User user){
-        return userService.addUser(user);
+    public void addUser(@RequestBody User user){
+        userService.addUser(user);
     }
-    //Get Scores/wins
-    //Update wins
+    //Get Scores/winsById
+    @GetMapping("{id}")
+    public User getUserWinsById(@PathVariable("id") Integer id){
+        return userService.getUserWinsById(id);
+    }
+
+    //Update winsbyid
+    @PutMapping("{id}")
+    public void updateUserWins(@PathVariable("id") Integer id, @RequestBody User updatedUser) {
+        userService.updateUserWins(id, updatedUser);
+    }
 }
+
+
+//getallusers?
