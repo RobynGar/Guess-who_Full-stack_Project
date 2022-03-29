@@ -85,8 +85,8 @@ public class CharacterController {
 
     //    london?
     @GetMapping("features/london")
-    public List<Character> getCharacterByIsLondon() {
-        return characterService.getCharacterByIsLondon();
+    public List<Character> getCharacterByLondon() {
+        return characterService.getCharacterByLondon();
     }
 
     //    pets

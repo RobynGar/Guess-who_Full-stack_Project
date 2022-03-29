@@ -7,5 +7,27 @@ public interface CharacterDAO {
 
     Character getCharacterById(Integer id);
 
-    List<Character> getRandomCharactersByNumber(Integer num);
+    List<Character> getCharacterByHair(String hair);
+
+    List<Character> getCharacterByGender(String gender);
+
+    Character getCharacterByName(String name);
+
+    List<Character> getCharacterByEyeColour(String eyeColour);
+
+    List<Character> getCharacterByGlasses();
+
+    List<Character> getCharacterByPiercings();
+
+    List<Character> getCharacterByBeard();
+
+    List<Character> getCharacterByMoustache();
+
+    List<Character> getCharacterByLondon();
+
+    List<Character> getCharacterByPets();
+
+    List<Character> getCharacterByHairAccessory();
+
+    List<Character> getCharacterByTopColour(String topColour);
 }
