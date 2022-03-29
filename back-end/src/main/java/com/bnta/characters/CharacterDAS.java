@@ -71,10 +71,8 @@ public class CharacterDAS implements CharacterDAO {
     @Override
     public List<Character> getAllCharacters() {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
-                        FROM characters
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, moustache, london, pets, hair_accessory, top_colour
+                FROM characters
                 """;
         return jdbcTemplate.query(sql, new CharacterRowMapper());
     }

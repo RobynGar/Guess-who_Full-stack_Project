@@ -1,17 +1,22 @@
 package com.bnta.characters;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
+@Service
 public class CharacterService {
+
     private CharacterDAO characterDAO;
+
     public CharacterService(@Qualifier("characterRepo") CharacterDAO characterDAO){
         this.characterDAO = characterDAO;
-    };
+    }
+
     public List<Character> getAllCharacters() {
 
 
@@ -35,16 +40,16 @@ public class CharacterService {
         //creating a set of characters and looping through our allList and adding each
             //  character to the set
         HashSet<Integer> set = new HashSet<>();
-        for (Character character: allList
-             ) {
+        for (Character character: allList) {
             set.add(character.getId());
         }
+        // make randomizer
         Random random = new Random();
 
         // int listLength is the length of the randomList which we want to set to whatever
             //  num the pass in as argument
-        int listLength= 0;
-        while(listLength< max){
+        int listLength = 0;
+        while(listLength < max){
             // this is getting a numbers between 1-28 (upper bound 28 is the size of our
                 // character database)
             int id = 1 + random.nextInt(allList.size());

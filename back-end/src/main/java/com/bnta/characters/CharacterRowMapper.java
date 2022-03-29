@@ -13,7 +13,7 @@ public class CharacterRowMapper implements RowMapper<Character> {
                 rs.getInt("id"),
                 rs.getString("name"),
                 rs.getString("gender"),
-                rs.getString("har_colour"),
+                rs.getString("hair_colour"),
                 rs.getString("eye_colour"),
                 rs.getBoolean("glasses"),
                 rs.getBoolean("piercings"),

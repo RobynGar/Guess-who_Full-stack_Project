@@ -25,13 +25,14 @@ public class UserController {
     public void addUser(@RequestBody User user){
         userService.addUser(user);
     }
+
     //Get Scores/winsById
-    @GetMapping("{id}")
+    @GetMapping("wins/{id}")
     public User getUserWinsById(@PathVariable("id") Integer id){
         return userService.getUserWinsById(id);
     }
 
-    //Update winsbyid
+    //Update wins by id
     @PutMapping("{id}")
     public void updateUserWins(@PathVariable("id") Integer id, @RequestBody User updatedUser) {
         userService.updateUserWins(id, updatedUser);

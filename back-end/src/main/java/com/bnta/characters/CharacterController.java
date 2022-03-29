@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("chars")
 public class CharacterController {
+
     private CharacterService characterService;
 
     public CharacterController(CharacterService characterService) {
@@ -30,7 +31,7 @@ public class CharacterController {
     }
 
     //randomise by get character by a random id
-    @GetMapping("{num}")
+    @GetMapping("random/{num}")
     public List<Character> getRandomCharactersByNumber(@PathVariable("num") Integer num) {
         return characterService.getRandomCharactersByNumber(num);
     }
@@ -42,13 +43,13 @@ public class CharacterController {
     }
 
     // get character by gender
-    @GetMapping("features/{gender}")
+    @GetMapping("features/gender/{gender}")
     public List<Character> getCharacterByGender(@PathVariable("gender") String gender) {
         return characterService.getCharacterByGender(gender);
     }
 
     //name
-    @GetMapping("features/{name}")
+    @GetMapping("features/name/{name}")
     public Character getCharacterByName(@PathVariable("name") String name) {
         return characterService.getCharacterByName(name);
     }
