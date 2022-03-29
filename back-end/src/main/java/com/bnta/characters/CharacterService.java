@@ -59,7 +59,7 @@ public class CharacterService {
                 listLength ++;
             }
         }
-
+// develop comment
 
         return randomList;
     }
