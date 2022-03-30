@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {useEffect, useState} from 'react';
 import BoardContainer from './containers/BoardContainer';
@@ -25,9 +25,9 @@ function App() {
 
   return (
     <>
-    <h1>??Guess Who??</h1>
-    <BoardContainer characterList={characterList} queryCharacters={queryCharacters} character={character}/>
-    <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter}/>
+      <h1>??Guess Who??</h1>
+      <BoardContainer characterList={characterList} queryCharacters={queryCharacters} character={character}/>
+      <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter}/>
     </>
   );
 }

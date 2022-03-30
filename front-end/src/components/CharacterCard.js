@@ -1,10 +1,12 @@
 const CharacterCard = ({characterCard}) => {
     
+    const imgSource = `../images/${characterCard.name}.png`
 
     return(
-        <>
-        <h3>{characterCard.name}</h3>
-        </>
+        <figure >
+            <img className="card_image" src={imgSource} alt="not found"/>
+            <figcaption>{characterCard.name}</figcaption> 
+        </figure>
     )
 }
 
