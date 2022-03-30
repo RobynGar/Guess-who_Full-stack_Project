@@ -9,7 +9,7 @@ const BoardContainer = ({characterList, queryCharacter, character}) => {
     
     return (
     <>
-    {characterMap}
+        {characterMap}
     </>
     );
 
