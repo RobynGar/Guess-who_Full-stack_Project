@@ -12,7 +12,6 @@ import java.util.Random;
 public class CharacterService {
 
     private CharacterDAO characterDAO;
-
     public CharacterService(@Qualifier("characterRepo") CharacterDAO characterDAO){
         this.characterDAO = characterDAO;
     }
@@ -97,10 +96,6 @@ public class CharacterService {
 
     public List<Character> getCharacterByBeard() {
         return characterDAO.getCharacterByBeard();
-    }
-
-    public List<Character> getCharacterByMoustache() {
-        return characterDAO.getCharacterByMoustache();
     }
 
     public List<Character> getCharacterByLondon() {

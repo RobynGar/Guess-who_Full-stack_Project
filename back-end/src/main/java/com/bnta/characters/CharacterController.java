@@ -78,12 +78,6 @@ public class CharacterController {
         return characterService.getCharacterByBeard();
     }
 
-    //    moustache
-    @GetMapping("features/moustache")
-    public List<Character> getCharacterByMoustache() {
-        return characterService.getCharacterByMoustache();
-    }
-
     //    london?
     @GetMapping("features/london")
     public List<Character> getCharacterByLondon() {

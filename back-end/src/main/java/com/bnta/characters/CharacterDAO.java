@@ -26,8 +26,6 @@ public interface CharacterDAO {
 
     List<Character> getCharacterByBeard();
 
-    List<Character> getCharacterByMoustache();
-
     List<Character> getCharacterByLondon();
 
     List<Character> getCharacterByPets();

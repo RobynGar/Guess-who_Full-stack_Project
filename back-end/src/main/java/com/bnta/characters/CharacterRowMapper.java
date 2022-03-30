@@ -18,7 +18,6 @@ public class CharacterRowMapper implements RowMapper<Character> {
                 rs.getBoolean("glasses"),
                 rs.getBoolean("piercings"),
                 rs.getBoolean("beard"),
-                rs.getBoolean("moustache"),
                 rs.getBoolean("london"),
                 rs.getBoolean("pets"),
                 rs.getBoolean("hair_accessory"),

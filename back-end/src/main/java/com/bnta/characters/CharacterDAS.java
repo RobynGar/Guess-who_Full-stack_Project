@@ -71,8 +71,8 @@ public class CharacterDAS implements CharacterDAO {
     @Override
     public List<Character> getAllCharacters() {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, moustache, london, pets, hair_accessory, top_colour
-                FROM characters
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
+                    FROM characters
                 """;
         return jdbcTemplate.query(sql, new CharacterRowMapper());
     }
@@ -80,9 +80,7 @@ public class CharacterDAS implements CharacterDAO {
     @Override
     public Character getCharacterById(Integer id) {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE id = ?
                 """;
@@ -96,13 +94,10 @@ public class CharacterDAS implements CharacterDAO {
     @Override
     public List<Character> getCharacterByHair(String hair) {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE hair_colour = ?
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper(), hair);
 
     }
@@ -110,22 +105,17 @@ public class CharacterDAS implements CharacterDAO {
     @Override
     public List<Character> getCharacterByGender(String gender) {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE gender = ?
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper(), gender);
     }
 
     @Override
     public Character getCharacterByName(String name) {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE name = ?
                 """;
@@ -139,117 +129,80 @@ public class CharacterDAS implements CharacterDAO {
     @Override
     public List<Character> getCharacterByEyeColour(String eyeColour) {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE eye_colour = ?
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper(), eyeColour);
     }
 
     @Override
     public List<Character> getCharacterByGlasses() {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE glasses = TRUE
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper());
     }
 
     @Override
     public List<Character> getCharacterByPiercings() {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE piercings = TRUE
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper());
     }
 
     @Override
     public List<Character> getCharacterByBeard() {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE beard = TRUE
                 """;
-
-        return jdbcTemplate.query(sql, new CharacterRowMapper());
-    }
-
-    @Override
-    public List<Character> getCharacterByMoustache() {
-        String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
-                        FROM characters
-                        WHERE moustache = TRUE
-                """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper());
     }
 
     @Override
     public List<Character> getCharacterByLondon() {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE london = TRUE
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper());
     }
 
     @Override
     public List<Character> getCharacterByPets() {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE pets = TRUE
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper());
     }
 
     @Override
     public List<Character> getCharacterByHairAccessory() {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE hair_accessory = TRUE
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper());
     }
 
     @Override
     public List<Character> getCharacterByTopColour(String topColour) {
         String sql = """
-                SELECT id, name, gender, hair_colour, eye_colour,
-                        glasses, piercings, beard, moustache, london,
-                        pets, hair_accessory, top_colour
+                SELECT id, name, gender, hair_colour, eye_colour, glasses, piercings, beard, london, pets, hair_accessory, top_colour
                         FROM characters
                         WHERE top_colour = ?
                 """;
-
         return jdbcTemplate.query(sql, new CharacterRowMapper(), topColour);
     }
 }
