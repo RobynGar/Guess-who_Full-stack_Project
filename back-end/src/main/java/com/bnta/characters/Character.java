@@ -11,13 +11,12 @@ private String eyeColour;
 private boolean glasses;
 private boolean piercings;
 private boolean beard;
-private boolean moustache;
 private boolean london;
 private boolean pets;
 private boolean hairAccessory;
 private String topColour;
 
-public Character (Integer id, String name, String gender, String hairColour, String eyeColour, boolean glasses, boolean piercings, boolean beard,boolean moustache, boolean london, boolean pets, boolean hairAccessory, String topColour){
+public Character (Integer id, String name, String gender, String hairColour, String eyeColour, boolean glasses, boolean piercings, boolean beard, boolean london, boolean pets, boolean hairAccessory, String topColour){
     this.id = id;
     this.name = name;
     this.gender = gender;
@@ -26,7 +25,6 @@ public Character (Integer id, String name, String gender, String hairColour, Str
     this.glasses = glasses;
     this.piercings = piercings;
     this.beard = beard;
-    this.moustache = moustache;
     this.london = london;
     this.pets = pets;
     this.hairAccessory = hairAccessory;
@@ -102,14 +100,6 @@ public Character (Integer id, String name, String gender, String hairColour, Str
         this.beard = beard;
     }
 
-    public boolean isMoustache() {
-        return moustache;
-    }
-
-    public void setMoustache(boolean moustache) {
-        this.moustache = moustache;
-    }
-
     public boolean isLondon() {
         return london;
     }
@@ -153,7 +143,6 @@ public Character (Integer id, String name, String gender, String hairColour, Str
                 ", glasses=" + glasses +
                 ", piercings=" + piercings +
                 ", beard=" + beard +
-                ", moustache=" + moustache +
                 ", london=" + london +
                 ", pets=" + pets +
                 ", hairAccessory=" + hairAccessory +
@@ -166,12 +155,12 @@ public Character (Integer id, String name, String gender, String hairColour, Str
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Character character = (Character) o;
-        return glasses == character.glasses && piercings == character.piercings && beard == character.beard && moustache == character.moustache && london == character.london && pets == character.pets && hairAccessory == character.hairAccessory && Objects.equals(id, character.id) && Objects.equals(name, character.name) && Objects.equals(gender, character.gender) && Objects.equals(hairColour, character.hairColour) && Objects.equals(eyeColour, character.eyeColour) && Objects.equals(topColour, character.topColour);
+        return glasses == character.glasses && piercings == character.piercings && beard == character.beard && london == character.london && pets == character.pets && hairAccessory == character.hairAccessory && Objects.equals(id, character.id) && Objects.equals(name, character.name) && Objects.equals(gender, character.gender) && Objects.equals(hairColour, character.hairColour) && Objects.equals(eyeColour, character.eyeColour) && Objects.equals(topColour, character.topColour);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, gender, hairColour, eyeColour, glasses, piercings, beard, moustache, london, pets, hairAccessory, topColour);
+        return Objects.hash(id, name, gender, hairColour, eyeColour, glasses, piercings, beard, london, pets, hairAccessory, topColour);
     }
 }
 
