@@ -1,7 +1,9 @@
-const CharacterCard = () => {
+const CharacterCard = ({characterCard}) => {
+    
+
     return(
         <>
-        <h1>CharacterCard</h1>
+        <h3>{characterCard.name}</h3>
         </>
     )
 }
