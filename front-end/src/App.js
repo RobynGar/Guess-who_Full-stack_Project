@@ -19,9 +19,10 @@ function App() {
     .catch(error => console.error(error))
   }
 
+  console.log("hello " + characterList);
+
   useEffect(fetchRandomCharacters, []);
 
-  console.log(characterList);
 
   return (
     <>
