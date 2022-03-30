@@ -13,7 +13,7 @@ function App() {
   const[character, setCharacter]= useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
 
   const fetchRandomCharacters = () => {
-    fetch("http://localhost:8080/chars")
+    fetch("http://localhost:8080/chars/random/15")
     .then(response => response.json())
     .then(characterBoard => setCharacterList(characterBoard))
     .catch(error => console.error(error))
