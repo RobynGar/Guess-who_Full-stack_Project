@@ -17,8 +17,6 @@ public class CharacterService {
     }
 
     public List<Character> getAllCharacters() {
-
-
        return characterDAO.getAllCharacters();
     }
 
