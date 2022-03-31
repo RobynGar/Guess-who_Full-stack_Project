@@ -4,7 +4,7 @@ const CharacterCard = ({character, choosePlayerCharacter, computerCharacter}) =>
 
     const handleCardClick = () => {
         if (computerCharacter.name !== ""){
-
+            
         } else {
             choosePlayerCharacter(character);
         }
