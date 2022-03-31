@@ -1,9 +1,9 @@
 import CharacterCard from "../components/CharacterCard";
 
-const BoardContainer = ({characterList, queryCharacter, character}) => {
+const BoardContainer = ({characterList, queryCharacter, character, choosePlayerCharacter, chosenCharacter}) => {
     
     const characterMap = characterList.map((character, index) => {
-        return <CharacterCard id={index} className="containerItems" characterCard={character} key={character.id}/>
+        return <CharacterCard id={index} className="containerItems" character={character} key={character.id} choosePlayerCharacter={choosePlayerCharacter} setChosenCharacter={chosenCharacter} />
     })
     
     

@@ -1,11 +1,11 @@
-const CharacterCard = ({characterCard}) => {
+const CharacterCard = ({character, choosePlayerCharacter, setChosenCharacter}) => {
     
-    const imgSource = `../images/${characterCard.name}.png`
+    const imgSource = `../images/${character.name}.png`
 
     return(
-        <div className="board">
-                <img className="card_image" src={imgSource} alt="not found"/>
-                <h4>{characterCard.name}</h4> 
+        <div className="board" >
+                <img className="card_image" src={imgSource} alt="not found" onClick = {character => setChosenCharacter(character)}/>
+                <h4>{character.name}</h4> 
         </div>
         
     )
