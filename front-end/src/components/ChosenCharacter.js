@@ -12,13 +12,19 @@ const ChosenCharacter = ({chosenCharacter}) => {
     // function to update the output card to the image that had just been clicked on by the player
     // in line 17, we're calling on to imgsrc as the updated output card 
     const createPlayerCard = () => {
-        setOutputCard(
-        <div>
-            <img src={imgsrc} alt="not found"></img>
-            <h3>{chosenCharacter.name}</h3>
-        </div>
+        // if else statement so that if character has not been chosen display anonymous default img
+        // else display chosen character
+        if(chosenCharacter.name === ""){
+            setOutputCard(<img src ="../images/anonymous.png" alt="anon"></img>)
+        }
+        else{setOutputCard(
+            <div>
+                <img src={imgsrc} alt="not found"></img>
+                <h3>{chosenCharacter.name}</h3>
+            </div>)
+        
             
-        )}
+    }}
 
     // we rerender the function only every time a character is chosen 
     useEffect(createPlayerCard, [chosenCharacter]);    
