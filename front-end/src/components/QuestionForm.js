@@ -3,7 +3,11 @@ const QuestionForm = ({}) => {
 
     const [moreOptions, setMoreOptions] = useState([])
 
-    const hairOptions = (event) => {
+    const handleMoreOptions = (event) => {
+        // gets the value that has been selected 
+
+        //ToDo: add if else statement for different questions and their diff dropdown options
+        
         console.log(event.target.value);
         // setMoreOptions(
         // <form>
@@ -20,7 +24,8 @@ const QuestionForm = ({}) => {
 
     return (
         <form>
-        <select name ="questions" onChange = {(event) => hairOptions(event, setMoreOptions)} >
+            {/* When option is selected, run method to create more options depending on what's been selected */}
+        <select name ="questions" onChange = {(event) => handleMoreOptions(event)} >
             <option value="hair" >Is their hair:</option> 
             <option value="top">Is their top:</option>
             <option value="eyes">Are their eyes:</option>
