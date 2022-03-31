@@ -12,16 +12,19 @@ function App() {
   const[queryCharacters, setQueryCharacters] = useState([]);
   const[character, setCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
   const[computerCharacter, setComputerCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
+  const[remainingCharacters, setRemainingCharacters]= useState([]);
+
 
   const fetchRandomCharacters = () => {
     fetch("http://localhost:8080/chars/random/15")
     .then(response => response.json())
-    .then(characterBoard => setCharacterList(characterBoard))
+    .then(characterBoard => {setCharacterList(characterBoard); setRemainingCharacters(characterBoard)})
     .catch(error => console.error(error))
   }
 
   useEffect(fetchRandomCharacters, []);
-
+  // useEffect(() => {setRemainingCharacters(characterList);}, []);
+//  useEffect(console.log(remainingCharacters), [remainingCharacters]);
 
   return (
     <>
