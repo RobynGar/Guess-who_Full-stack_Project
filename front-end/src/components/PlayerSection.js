@@ -1,4 +1,4 @@
-const PlayerSection = () => {
+const PlayerSection = ({}) => {
     return(
         <>
         </>

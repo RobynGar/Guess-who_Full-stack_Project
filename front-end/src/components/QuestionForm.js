@@ -1,4 +1,4 @@
-const QuestionForm = () => {
+const QuestionForm = ({}) => {
 
     return (
         <>

@@ -14,7 +14,6 @@ function App() {
   const[remainingCharacters, setRemainingCharacters]= useState([]);
   // const[character, setCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
 
-
   const fetchRandomCharacters = () => {
     fetch("http://localhost:8080/chars/random/15")
     .then(response => response.json())
@@ -48,8 +47,8 @@ function App() {
     <>
       <h1>??Guess Who??</h1>
       <h3>Click on your Character below</h3>
-      <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter}/>
-      <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter}/>
+      <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
+      <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame}/>
       <h2>Your character is: {chosenCharacter.name}</h2>
       <h2>PC character is: {computerCharacter.name}</h2>
     </>
