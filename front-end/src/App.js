@@ -26,6 +26,7 @@ function App() {
     .catch(error => console.error(error))
   }
 
+  // chosen character is set as the icon clicked on by the player npm
   const choosePlayerCharacter = (selected) => {
     setChosenCharacter(selected);
   }
