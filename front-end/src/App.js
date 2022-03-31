@@ -29,14 +29,17 @@ function App() {
 
   const choosePlayerCharacter = (selected) => {
     setChosenCharacter(selected);
-    console.log(chosenCharacter);
   }
 
-  const chooseCompChar = (characterList) => {
+  const chooseCompChar = () => {
     // get random number between 0 and 14
-    let rand = Math.floor(Math.random() * characterList.length)
+    let rand = Math.floor(Math.random() * characterList.length);
     // sets the computerCharacter to the character at position random index no. 
-    setComputerCharacter(characterList[rand])
+    setComputerCharacter(characterList[rand]);
+  }
+
+  const startGame = () => {
+    chooseCompChar();
   }
 
   useEffect(fetchRandomCharacters, []);
@@ -48,6 +51,7 @@ function App() {
       <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter}/>
       <h2>Your character is: {chosenCharacter.name}</h2>
+      <h2>PC character is: {computerCharacter.name}</h2>
     </>
   );
 }
