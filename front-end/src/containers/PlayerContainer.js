@@ -3,6 +3,7 @@ import PlayerSection from "../components/PlayerSection";
 import QuestionForm from "../components/QuestionForm";
 import CharacterCard from "../components/CharacterCard";
 
+
 const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, startGame}) => {
     
     const handleStartClick = () => {
@@ -22,6 +23,10 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     //     return <CharacterCard id={index} className="containerItems" character={character} key={character.id} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
     // })
     
+   
+
+    
+
     return (
     <>
     <ChosenCharacter  chosenCharacter={chosenCharacter} />
@@ -30,6 +35,8 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     {/* <form onSubmit={handleFormSubmit} > */}
     <button onClick={() => handleStartClick()}>Start game</button>
     {/* </form> */}
+    
+
     </>
     );
 
