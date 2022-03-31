@@ -23,9 +23,7 @@ function App() {
   }
 
   useEffect(fetchRandomCharacters, []);
-  // useEffect(() => {setRemainingCharacters(characterList);}, []);
-//  useEffect(console.log(remainingCharacters), [remainingCharacters]);
-
+  
   return (
     <>
       <h1>??Guess Who??</h1>
