@@ -4,7 +4,7 @@ import QuestionForm from "../components/QuestionForm";
 import CharacterCard from "../components/CharacterCard";
 
 
-const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, startGame}) => {
+const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, startGame, setQueryOption}) => {
     
     const handleStartClick = () => {
         console.log(chosenCharacter.name);
@@ -36,7 +36,7 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     </div>
         <div id='questionForm'>
     <h4>Ask your Questions below</h4>
-    <QuestionForm />
+    <QuestionForm setQueryOption={setQueryOption}/>
     <button onClick={() => handleStartClick()}>Start game</button>
         </div>
     </div>

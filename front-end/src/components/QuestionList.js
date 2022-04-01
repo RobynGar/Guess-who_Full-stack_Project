@@ -1,11 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import Dropdown from "./Dropdown"
+import { questions } from "./questions";
 
 // MenuItem 
-const QuestionList = ({options, depthLevel}) => {
+const QuestionList = ({options, depthLevel, setQueryOption}) => {
     
     const [dropdown, setDropdown] = useState(false);
     let ref = useRef();
+
+    const handleClick = (event) => {
+        setQueryOption(event.target.value)
+    }
 
     // these two check if screen is monitor or phone, if monitor -> changes when hover on and off
             // if phone -> changes when you click on or off (because you don't have a mouse to hover)
@@ -45,10 +50,10 @@ const QuestionList = ({options, depthLevel}) => {
                      {options.title}{" "}
                      {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow"/>}
                  </button>
-                 <Dropdown submenu = {options.submenu} dropdown={dropdown} depthLevel={depthLevel}/>
+                 <Dropdown submenu = {options.submenu} dropdown={dropdown} depthLevel={depthLevel} setQueryOption={setQueryOption}/>
                  </>
              ) : (
-                 <button type="button" value="placeholder">{options.title}</button>
+                 <button type="button" value={options.value} onClick={(event)=> handleClick(event)}>{options.title}</button>
              )} 
         </li>
     )

@@ -13,6 +13,8 @@ function App() {
   const[queryCharacters, setQueryCharacters] = useState([]);
   const[remainingCharacters, setRemainingCharacters]= useState([]);
   // const[character, setCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
+  const[displayMessage, setDisplayMessage] = useState("Click on your character below");
+  const[queryOption, setQueryOption] = useState("");
 
   const fetchRandomCharacters = () => {
     fetch("http://localhost:8080/chars/random/15")
@@ -42,19 +44,24 @@ function App() {
     chooseCompChar();
   }
 
+  const sendQueryRequest = () => {
+    console.log(queryOption);
+  }
+
   useEffect(fetchRandomCharacters, []);
+  useEffect(sendQueryRequest, [queryOption]);
   
   return (
     <>
       
       <h1>??Guess Who??</h1>
-      <h3>Click on your character below</h3>
+      <h3>{displayMessage}</h3>
       <div className='entireGame'>
-      
       <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
-      <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame}/>
+      <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>
       <h2>PC character is: {computerCharacter.name}</h2> */}
+      
       </div>
     </>
   );
