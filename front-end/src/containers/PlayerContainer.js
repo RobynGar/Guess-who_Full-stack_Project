@@ -31,15 +31,15 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     <>
     <div id='playerContainer'>
         <div id='topSection'>
-    <ChosenCharacter  chosenCharacter={chosenCharacter} />
-    <PlayerSection />
-    </div>
+            <ChosenCharacter  chosenCharacter={chosenCharacter} />
+            <PlayerSection />
+        </div>
         <div id='questionForm'>
-    <h4>Ask your Questions below</h4>
-    <QuestionForm />
-    </div>
-    <button onClick={() => handleStartClick()}>Start game</button>
-        
+            <h4>Ask your Questions below</h4>
+            <QuestionForm />
+            <hr />
+            <button className="start_game_button" onClick={() => handleStartClick()}>Start game</button>
+        </div> 
     </div>
     </>
     );

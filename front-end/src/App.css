@@ -25,43 +25,47 @@
 
 h4 {
 	text-align: center;
-	/* margin: 10px 0; */
+	margin: 10px 0;
 }
 
 .entireGame {
 	display: flex;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	justify-content: space-between;
 	margin-right: 65px;
 }
 
 #playerContainer{
 	display: flex;
-	flex-wrap: nowrap;
+	/* flex-wrap: nowrap; */
+	flex-direction: column;
+	width: 25%;
+    margin-left: 5%;
 	/* border: 2px red dashed; */
 }
 
 #topSection{
-	display: inline-flex;
-	flex-wrap: wrap;
+	/* display: inline-flex; */
+	/* flex-wrap: wrap; */
+	display: flex;
 	height: 10px;
 
 }
 
 .output-card {
-	border: 2px black dashed;
+	/* border: 2px black dashed; */
 	width: 270px;
-	height: 461px;
+	height: 400px;
 	text-align: center;
 	text-transform: capitalize;
 	background-color: rgb(202, 167, 224);
 }
 
 .anon {
-	border: 2px black dashed;
-	width: 270px;
-	height: 461px;
-	text-align: center;
+	/* border: 2px black dashed; */
+	/* width: 270px;
+	height: 400px;
+	text-align: center; */
 }
 
 .chosen-image {
@@ -82,14 +86,22 @@ h3 {
 }
 
 #questionForm{
-	border: 2px black dashed;
+	/* border: 2px black dashed; */
 	text-align: center;
-	margin-top: 10rem;
+	/* margin-top: 50%; */
+	width: 30%;
+    bottom: 0;
+    position: absolute;
 }
 
 .score{
-	border: 2px black dashed;
-	width: 270px;
+	/* border: 2px black dashed; */
+    height: fit-content;
+	width: 25%;
+    margin-left: 5%;
+}
+.start_game_button{
+	text-align: center;
 }
 
 .dropdown {
@@ -97,8 +109,9 @@ h3 {
 }
 
 .questions {
-	display: flex;
+	display: inline-block;
 	list-style: none;
+	padding-left: 0;
   }
 
 .questionOptions {
