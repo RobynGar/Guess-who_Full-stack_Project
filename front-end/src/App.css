@@ -32,19 +32,26 @@ h4 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin-right: 200px;
+	margin-right: 65px;
 }
 
-/* #playerContainer{
+#playerContainer{
+	display: flex;
+	flex-wrap: nowrap;
+	/* border: 2px red dashed; */
+}
+
+#topSection{
 	display: inline-flex;
 	flex-wrap: wrap;
 	height: 10px;
 
-} */
+}
 
 .output-card {
 	border: 2px black dashed;
-	width: 200px;
+	width: 270px;
+	height: 461px;
 	text-align: center;
 	text-transform: capitalize;
 	background-color: rgb(202, 167, 224);
@@ -52,7 +59,8 @@ h4 {
 
 .anon {
 	border: 2px black dashed;
-	width: 200px;
+	width: 270px;
+	height: 461px;
 	text-align: center;
 }
 
@@ -71,4 +79,15 @@ h3 {
 
 .font {
 	font-size: 1.5rem;
+}
+
+#questionForm{
+	border: 2px black dashed;
+	text-align: center;
+	margin-top: 10rem;
+}
+
+.score{
+	border: 2px black dashed;
+	width: 270px;
 }
