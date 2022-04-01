@@ -38,11 +38,7 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     <h4>Ask your Questions below</h4>
     <QuestionForm />
     <button onClick={() => handleStartClick()}>Start game</button>
-<<<<<<< HEAD
         </div>
-=======
-         </div>
->>>>>>> 1416f9cae7288144760792698b84d81d21db4c4b
     </div>
     </>
     );
