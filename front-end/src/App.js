@@ -44,12 +44,17 @@ function App() {
     chooseCompChar();
   }
 
-  const sendQueryRequest = () => {
+  const sendQueryRequest = (option) => {
     console.log(queryOption);
+    fetch(`http://localhost:8080/chars/features/${option}`)
+    .then(response => response.json())
+    .then(questionCharacters => setQueryCharacters(questionCharacters))
+    .catch(error => console.error(error))
   }
+  console.log(queryCharacters);
 
   useEffect(fetchRandomCharacters, []);
-  useEffect(sendQueryRequest, [queryOption]);
+  useEffect(() => sendQueryRequest(queryOption), [queryOption]);
   
   return (
     <>
