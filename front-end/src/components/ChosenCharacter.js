@@ -18,8 +18,8 @@ const ChosenCharacter = ({chosenCharacter}) => {
             setOutputCard(<img src ="../images/anonymous.png" alt="anon"></img>)
         }
         else{setOutputCard(
-            <div>
-                <img src={imgsrc} alt="not found"></img>
+            <div id='output-card'>
+                <img className="chosen-image" src={imgsrc} alt="not found"></img>
                 <h3>{chosenCharacter.name}</h3>
             </div>)
         
@@ -31,9 +31,9 @@ const ChosenCharacter = ({chosenCharacter}) => {
 
     return(
         <>
-        <div>
+       
         {outputCard}
-        </div>
+        
         </>
     )
 }

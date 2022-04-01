@@ -46,12 +46,16 @@ function App() {
   
   return (
     <>
+      
       <h1>??Guess Who??</h1>
       <h3>Click on your Character below</h3>
+      <div className='entireGame'>
+      
       <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame}/>
-      <h2>Your character is: {chosenCharacter.name}</h2>
-      <h2>PC character is: {computerCharacter.name}</h2>
+      {/* <h2>Your character is: {chosenCharacter.name}</h2>
+      <h2>PC character is: {computerCharacter.name}</h2> */}
+      </div>
     </>
   );
 }
