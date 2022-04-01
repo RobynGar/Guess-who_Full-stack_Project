@@ -49,16 +49,67 @@ function App() {
   }
 
   const sendQueryRequest = (option) => {
-    console.log(queryOption);
     fetch(`http://localhost:8080/chars/features/${option}`)
     .then(response => response.json())
     .then(questionCharacters => setQueryCharacters(questionCharacters))
     .catch(error => console.error(error))
   }
   
+  // this method works
   const compareQueryToBoard = () => {
-
+    let isTrue = false;
+    for (const char of queryCharacters){
+      // for each of the chars returned by the query, see if any of them are the opponent's char. If they are, the query is true, else is false.
+      if (char.name === computerCharacter.name){
+        isTrue = true;
+      }
+    }
+    setRemainingCharacters(removeCharactersFromRemaining(isTrue));
+    console.log(remainingCharacters);
   }
+
+  const removeCharactersFromRemaining = isTrue => {
+    let filteredArr;
+    if (isTrue){
+      // if the query was true,remove characters from remainingCharacters that are not in queryCharacters
+      filteredArr = remainingCharacters.filter(c => {
+        let present = false;
+        // each c of remaining characters...
+        for (const char of queryCharacters){
+          // ...is checked to see if it is in the queryCharacters.
+          if (c.name === char.name){
+            // if it is in Q.C., then the filter is returned true and the char stays in the remaining characters, if not then they are removed
+            present = true;
+          }
+        }
+        return present;
+      })
+      console.log(filteredArr);
+      // setRemainingCharacters(filteredArr);
+      console.log(remainingCharacters);
+    } else {
+      // If opponent is not in query
+      filteredArr = remainingCharacters.filter(c => {
+        let present = true;
+        // each c of remaining characters...
+        for (const char of queryCharacters){
+          // ...is checked to see if it is in the queryCharacters.
+          if (c.name === char.name){
+            // if it is in Q.C., then the filter is returned false and the char is removed from the remaining characters, else they stay in remain
+            present = false;
+          }
+        }
+        return present;
+      })
+      console.log(filteredArr);
+      // setRemainingCharacters(filteredArr);
+      
+      console.log(remainingCharacters);
+    }
+    return filteredArr;
+  }
+
+  
 
   useEffect(fetchRandomCharacters, []);
   useEffect(() => sendQueryRequest(queryOption), [queryOption]);
@@ -67,12 +118,12 @@ function App() {
     <>
       
       <h1>??Guess Who??</h1>
-      <TopBarContainer displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} />
+      <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} />
       <div className='entireGame'>
-      <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
+      <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
-      {/* <h2>Your character is: {chosenCharacter.name}</h2>
-      <h2>PC character is: {computerCharacter.name}</h2> */}
+      {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
+      <h2>PC character is: {computerCharacter.name}</h2> 
       
       </div>
     </>

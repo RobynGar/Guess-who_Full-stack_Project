@@ -32,7 +32,7 @@ export const questions = [
         title: "Gender...",
         submenu: [
             { title: "male", value: "gender/male", message: "Are they male?"},
-            { title: "female", value: "gender/male", message: "Are they female?"}
+            { title: "female", value: "gender/female", message: "Are they female?"}
         ],
       },
       {

@@ -162,6 +162,10 @@ h3 {
   .dropdown.show {
 	display: block;
   }
+
+  .eliminated {
+	  border-color: red;
+  }
   
   .dropdown .dropdown-submenu {
 	position: absolute;

@@ -4,17 +4,26 @@ import { questions } from "./questions"
 
 
 
-const QuestionForm = ({setQueryOption, setDisplayMessage}) => {   // this is like our navBar
+const QuestionForm = ({compareQueryToBoard, setQueryOption, setDisplayMessage}) => {   // this is like our navBar
 
 
     const depthLevel = 0;
+
+    const submitQuestion = () => {
+        //should change display message to '....' then a setTimer for 1 second then display message to 'True!' or 'False!' with another timer before editing the player cards if they are eliminated. Will look jarring if it all just happens instantly.
+        // when they click submit, runs the compareQuery method in App.js
+        compareQueryToBoard();
+    }
+
 
     return (
         <>
         <ul className="questions" id="questionButton">{questions.map((question, index) => {  // questions = menuItems
             return <QuestionList setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} options={question} key={index} depthLevel={depthLevel}/>    // QuestionList = MenuItems
             // create a prop called options which takes our questions.js
-        })}</ul>
+        })}
+        </ul>
+        <button type="button" onClick={() => submitQuestion()}>Ask question!</button>
         </>
     )
 }
