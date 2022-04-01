@@ -58,8 +58,9 @@ function App() {
   
   return (
     <>
-      
-      <h1>??Guess Who??</h1>
+      <div className="game_title">
+        <h1 className="game_title_text">??Guess Who??</h1>
+      </div>
       <h3>{displayMessage}</h3>
       <div className='entireGame'>
       <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>

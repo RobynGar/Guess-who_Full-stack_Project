@@ -1,3 +1,14 @@
+.game_title{
+	background-color: #A4CC98;
+	margin-top: 0;
+	height: 100px;	
+}
+h1{
+	margin: 0;
+}
+.game_title_text{
+	padding: 25px;
+}
 .card_image {
 	max-width: 100%;
 }
@@ -41,6 +52,9 @@ h4 {
 	flex-direction: column;
 	width: 25%;
     margin-left: 5%;
+	background-color: #AAAAAA;
+	padding: 15px;
+	border-radius: 12px;
 	/* border: 2px red dashed; */
 }
 
@@ -55,14 +69,14 @@ h4 {
 .output-card {
 	/* border: 2px black dashed; */
 	width: 70%;
-	height: 400px;
+	height: 350px;
 	text-align: center;
 	text-transform: capitalize;
-	background-color: rgb(202, 167, 224);
+	/* background-color: rgb(202, 167, 224); */
 }
 
 .anon {
-	border: 2px black dashed; 
+	/* border: 2px black dashed;  */
 	width: 270px;
 	height: 400px;
 	text-align: center;
@@ -89,7 +103,6 @@ h3 {
 	/* border: 2px black dashed; */
 	text-align: center;
 	/* margin-top: 50%; */
-	width: 30%;
     bottom: 0;
     position: absolute;
 }
@@ -102,6 +115,12 @@ h3 {
 }
 .start_game_button{
 	text-align: center;
+	border-radius: 12px;
+	background-color: #A4CC98;
+	border: none;
+	padding: 10px;
+	font-size: large;
+
 }
 
 .dropdown {
