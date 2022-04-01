@@ -35,16 +35,25 @@ h4 {
 /* #playerContainer{
 	display: inline-flex;
 	flex-wrap: wrap;
+	height: 10px;
 
 } */
 
-#output-card{
+.output-card{
 	border: 2px black dashed;	
-	width: 300px;
+	width: 200px;
 	text-align: center;
 }
 
 .chosen-image{
 	max-width: 100%;
 
+}
+
+h1{
+ 	text-align: center;
+}
+
+h3{
+	margin: 1.1rem;
 }

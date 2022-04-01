@@ -32,12 +32,11 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     <div id='playerContainer'>
     <ChosenCharacter  chosenCharacter={chosenCharacter} />
     <PlayerSection />
-    
+    {/* </div> */}
     <QuestionForm />
     {/* <form onSubmit={handleFormSubmit} > */}
     <button onClick={() => handleStartClick()}>Start game</button>
     {/* </form> */}
-    
     </div>
     </>
     );
