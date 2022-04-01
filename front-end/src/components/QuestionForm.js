@@ -2,7 +2,33 @@ import { useState } from "react"
 import QuestionList from "./QuestionList"
 import { questions } from "./questions"
 
-const QuestionForm = ({}) => {
+
+
+const QuestionForm = ({}) => {   // this is like our navBar
+
+
+    const depthLevel = 0;
+
+    return (
+        <>
+        <ul className="questions" id="questionButton">{questions.map((question, index) => {  // questions = menuItems
+            return <QuestionList options={question} key={index} depthLevel={depthLevel}/>    // QuestionList = MenuItems
+            // create a prop called options which takes our questions.js
+        
+        })}</ul>
+
+       
+        </>
+    )
+}
+
+export default QuestionForm;
+
+
+
+
+
+
 
     // follow up options to filter characters
     // const [moreOptions, setMoreOptions] = useState([])
@@ -118,19 +144,7 @@ const QuestionForm = ({}) => {
     // }
 
 
-
-    return (
-        <>
-        <ul className="questions" id="questionButton">{questions.map((question, index) => {
-            return <QuestionList options={question} key={index}/>
-            
-            
-            // <li options={question} key={index}>
-            //     <h5>{question.title}</h5>
-            //     </li>
-        })}</ul>
-
-        {/* <form> */}
+     {/* <form> */}
             {/* When option is selected, run method to create more options depending on what's been selected */}
         {/* <select name ="questions" onChange = {(event) => handleMoreOptions(event)} >
             <option value="">Select from the options below...</option>
@@ -147,11 +161,7 @@ const QuestionForm = ({}) => {
         </select> */}
         {/* </form> */}
         {/*  {moreOptions} */}
-        </>
-    )
-}
 
-export default QuestionForm;
 
 {/* <select name="choice" onChange={(event) => handleChange(event, setDifficulty)}>
                     {/* <option selected>Select Difficulty</option> */}

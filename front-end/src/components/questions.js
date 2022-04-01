@@ -3,13 +3,34 @@ export const questions = [{
         title: "Questions",
         submenu:[
             {
-                title: "Is their hair: "
+                title: "Is their hair: ",
+                submenu: [
+                    {title: "blonde",},
+                    {title: "black",},
+                    {title: "brown",},
+                    {title: "hijab",},
+
+                ],
+            },
+
+            {
+                title: "Is their top: ",
+                submenu: [
+                    {title: "red",},
+                    {title: "white",},
+                    {title: "black",},
+
+                ],
+
             },
             {
-                title: "Is their top: "
-            },
-            {
-                title: "Are their eyes: "
+                title: "Are their eyes: ",
+                submenu: [
+                    {title: "brown",},
+                    {title: "blue",},
+                    {title: "green",},
+
+                ],
             }
             
         ]
