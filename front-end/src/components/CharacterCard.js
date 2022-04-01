@@ -11,7 +11,7 @@ const CharacterCard = ({character, choosePlayerCharacter, computerCharacter}) =>
     }
 
     return(
-        <div className="board"  onClick = {() => handleCardClick()}>
+        <div className="board font"  onClick = {() => handleCardClick()}>
                 <img className="card_image" src={imgSource} alt="not found"/>
                 <h4>{character.name}</h4> 
         </div>

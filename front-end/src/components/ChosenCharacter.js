@@ -16,13 +16,13 @@ const ChosenCharacter = ({chosenCharacter}) => {
         // else display chosen character
         if(chosenCharacter.name === ""){
             setOutputCard(
-            <div className='anon'>
+            <div className='anon font'>
                 <h4>Character not chosen</h4>
                <img className="chosen-image" src ="../images/anonymous.png" alt="anon"></img>
             </div>)
         }
         else{setOutputCard(
-            <div className='output-card'>
+            <div className='output-card font'>
                 <h4>Your chosen character:</h4>
                 <img className="chosen-image" src={imgsrc} alt="not found"></img>
                 <h3>{chosenCharacter.name}</h3>
