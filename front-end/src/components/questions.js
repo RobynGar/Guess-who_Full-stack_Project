@@ -5,7 +5,8 @@ export const questions = [{
             {
                 title: "Is their hair colour...",
                 submenu: [
-                    {title: "blonde",},
+                    {title: "blonde",
+                    value: 'hair/blonde'},
                     {title: "black",},
                     {title: "brown",},
                     {title: "hijab",},
