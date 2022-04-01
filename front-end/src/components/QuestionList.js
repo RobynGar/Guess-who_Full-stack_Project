@@ -3,13 +3,13 @@ import Dropdown from "./Dropdown"
 import { questions } from "./questions";
 
 // MenuItem 
-const QuestionList = ({options, depthLevel, setQueryOption}) => {
+const QuestionList = ({options, depthLevel, setQueryOption, setDisplayMessage}) => {
     
     const [dropdown, setDropdown] = useState(false);
     let ref = useRef();
 
     const handleClick = (event) => {
-        setQueryOption(event.target.value)
+        setQueryOption(event.target.value);
     }
 
     // these two check if screen is monitor or phone, if monitor -> changes when hover on and off
@@ -50,10 +50,10 @@ const QuestionList = ({options, depthLevel, setQueryOption}) => {
                      {options.title}{" "}
                      {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow"/>}
                  </button>
-                 <Dropdown submenu = {options.submenu} dropdown={dropdown} depthLevel={depthLevel} setQueryOption={setQueryOption}/>
+                 <Dropdown submenu = {options.submenu} dropdown={dropdown} depthLevel={depthLevel} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage}/>
                  </>
              ) : (
-                 <button type="button" value={options.value} onClick={(event)=> handleClick(event)}>{options.title}</button>
+                 <button type="button" value={options.value} message={options.message} onClick={(event)=> {handleClick(event); setDisplayMessage(options.message) /* when click, sets display message to messages I added to questions.js, didn't work when I put setDisplayMessage in handleClick so had to put it here instead*/}}>{options.title}</button>
              )} 
         </li>
     )

@@ -4,7 +4,7 @@ import { questions } from "./questions"
 
 
 
-const QuestionForm = ({setQueryOption}) => {   // this is like our navBar
+const QuestionForm = ({setQueryOption, setDisplayMessage}) => {   // this is like our navBar
 
 
     const depthLevel = 0;
@@ -12,7 +12,7 @@ const QuestionForm = ({setQueryOption}) => {   // this is like our navBar
     return (
         <>
         <ul className="questions" id="questionButton">{questions.map((question, index) => {  // questions = menuItems
-            return <QuestionList setQueryOption={setQueryOption} options={question} key={index} depthLevel={depthLevel}/>    // QuestionList = MenuItems
+            return <QuestionList setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} options={question} key={index} depthLevel={depthLevel}/>    // QuestionList = MenuItems
             // create a prop called options which takes our questions.js
         })}</ul>
         </>

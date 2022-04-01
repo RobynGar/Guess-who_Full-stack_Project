@@ -3,6 +3,7 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import BoardContainer from './containers/BoardContainer';
 import PlayerContainer from './containers/PlayerContainer';
+import TopBarContainer from './containers/TopBarContainer';
 
 
 function App() {
@@ -41,7 +42,10 @@ function App() {
   }
 
   const startGame = () => {
+    // when game starts, random opponent character is chosen
     chooseCompChar();
+    // and display message changes to prompt player's first turn
+    setDisplayMessage('Select a question from the options below:')
   }
 
   const sendQueryRequest = (option) => {
@@ -51,7 +55,10 @@ function App() {
     .then(questionCharacters => setQueryCharacters(questionCharacters))
     .catch(error => console.error(error))
   }
-  console.log(queryCharacters);
+  
+  const compareQueryToBoard = () => {
+
+  }
 
   useEffect(fetchRandomCharacters, []);
   useEffect(() => sendQueryRequest(queryOption), [queryOption]);
@@ -60,7 +67,7 @@ function App() {
     <>
       
       <h1>??Guess Who??</h1>
-      <h3>{displayMessage}</h3>
+      <TopBarContainer displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} />
       <div className='entireGame'>
       <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
