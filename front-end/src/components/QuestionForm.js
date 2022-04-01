@@ -14,13 +14,12 @@ const QuestionForm = ({}) => {   // this is like our navBar
         <ul className="questions" id="questionButton">{questions.map((question, index) => {  // questions = menuItems
             return <QuestionList options={question} key={index} depthLevel={depthLevel}/>    // QuestionList = MenuItems
             // create a prop called options which takes our questions.js
-        
+            // sfdsfsd
         })}</ul>
-
-       
         </>
     )
 }
+
 
 export default QuestionForm;
 
