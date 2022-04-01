@@ -4,7 +4,7 @@ import QuestionForm from "../components/QuestionForm";
 import CharacterCard from "../components/CharacterCard";
 
 
-const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, startGame}) => {
+const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, startGame, setQueryOption}) => {
     
     const handleStartClick = () => {
         console.log(chosenCharacter.name);

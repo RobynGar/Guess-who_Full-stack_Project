@@ -1,6 +1,6 @@
 const PlayerSection = ({}) => {
     return(
-        <div className="score">
+        <div>
             <h1>Your Score</h1>
         </div>
     )

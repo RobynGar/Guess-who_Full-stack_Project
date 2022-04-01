@@ -54,7 +54,7 @@ h4 {
 
 .output-card {
 	/* border: 2px black dashed; */
-	width: 270px;
+	width: 70%;
 	height: 400px;
 	text-align: center;
 	text-transform: capitalize;
@@ -62,10 +62,10 @@ h4 {
 }
 
 .anon {
-	/* border: 2px black dashed; */
-	/* width: 270px;
+	border: 2px black dashed; 
+	width: 270px;
 	height: 400px;
-	text-align: center; */
+	text-align: center;
 }
 
 .chosen-image {
@@ -95,7 +95,7 @@ h3 {
 }
 
 .score{
-	/* border: 2px black dashed; */
+	border: 2px black dashed;
     height: fit-content;
 	width: 25%;
     margin-left: 5%;
