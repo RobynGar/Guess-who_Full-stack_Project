@@ -11,6 +11,7 @@
 	margin-left: 1rem;
 	border: 2px solid black;
 	grid-gap: 50 rem;
+	text-transform: capitalize;
 }
 
 .containerItems {
@@ -24,6 +25,7 @@
 
 h4 {
 	text-align: center;
+	/* margin: 10px 0; */
 }
 
 .entireGame {
@@ -41,6 +43,14 @@ h4 {
 } */
 
 .output-card {
+	border: 2px black dashed;
+	width: 200px;
+	text-align: center;
+	text-transform: capitalize;
+	background-color: rgb(202, 167, 224);
+}
+
+.anon {
 	border: 2px black dashed;
 	width: 200px;
 	text-align: center;

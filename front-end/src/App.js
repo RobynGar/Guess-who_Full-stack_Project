@@ -48,7 +48,7 @@ function App() {
     <>
       
       <h1>??Guess Who??</h1>
-      <h3>Click on your Character below</h3>
+      <h3>Click on your character below</h3>
       <div className='entireGame'>
       
       <BoardContainer characterList={characterList} queryCharacters={queryCharacters} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
