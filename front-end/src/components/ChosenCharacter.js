@@ -15,11 +15,16 @@ const ChosenCharacter = ({chosenCharacter}) => {
         // if else statement so that if character has not been chosen display anonymous default img
         // else display chosen character
         if(chosenCharacter.name === ""){
-            setOutputCard(<img src ="../images/anonymous.png" alt="anon"></img>)
+            setOutputCard(
+            <div className='anon font'>
+                <h4>Character not chosen</h4>
+               <img className="chosen-image" src ="../images/anonymous.png" alt="anon"></img>
+            </div>)
         }
         else{setOutputCard(
-            <div>
-                <img src={imgsrc} alt="not found"></img>
+            <div className='output-card font'>
+                <h4>Your chosen character:</h4>
+                <img className="chosen-image" src={imgsrc} alt="not found"></img>
                 <h3>{chosenCharacter.name}</h3>
             </div>)
         
@@ -31,9 +36,9 @@ const ChosenCharacter = ({chosenCharacter}) => {
 
     return(
         <>
-        <div>
+       
         {outputCard}
-        </div>
+        
         </>
     )
 }

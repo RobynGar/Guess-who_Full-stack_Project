@@ -7,10 +7,11 @@
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 1fr 1fr 1fr;
 	background-color: rgb(202, 167, 224);
-	width: 60%;
+	width: 70%;
 	margin-left: 1rem;
 	border: 2px solid black;
 	grid-gap: 50 rem;
+	text-transform: capitalize;
 }
 
 .containerItems {
@@ -24,6 +25,71 @@
 
 h4 {
 	text-align: center;
+	/* margin: 10px 0; */
+}
+
+.entireGame {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-right: 65px;
+}
+
+#playerContainer{
+	display: flex;
+	flex-wrap: nowrap;
+	/* border: 2px red dashed; */
+}
+
+#topSection{
+	display: inline-flex;
+	flex-wrap: wrap;
+	height: 10px;
+
+}
+
+.output-card {
+	border: 2px black dashed;
+	width: 270px;
+	height: 461px;
+	text-align: center;
+	text-transform: capitalize;
+	background-color: rgb(202, 167, 224);
+}
+
+.anon {
+	border: 2px black dashed;
+	width: 270px;
+	height: 461px;
+	text-align: center;
+}
+
+.chosen-image {
+	max-width: 100%;
+}
+
+h1 {
+	text-align: center;
+}
+
+h3 {
+	margin: 1.1rem;
+	font-size: larger;
+}
+
+.font {
+	font-size: 1.5rem;
+}
+
+#questionForm{
+	border: 2px black dashed;
+	text-align: center;
+	margin-top: 10rem;
+}
+
+.score{
+	border: 2px black dashed;
+	width: 270px;
 }
 
 .dropdown {

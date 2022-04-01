@@ -29,14 +29,17 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
 
     return (
     <>
+    <div id='playerContainer'>
+        <div id='topSection'>
     <ChosenCharacter  chosenCharacter={chosenCharacter} />
     <PlayerSection />
+    </div>
+        {/* <div id='questionForm'>
+    <h4>Ask your Questions below</h4>
     <QuestionForm />
-    {/* <form onSubmit={handleFormSubmit} > */}
     <button onClick={() => handleStartClick()}>Start game</button>
-    {/* </form> */}
-    
-
+        </div> */}
+    </div>
     </>
     );
 
