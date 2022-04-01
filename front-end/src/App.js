@@ -64,15 +64,13 @@ function App() {
         isTrue = true;
       }
     }
-    setRemainingCharacters(removeCharactersFromRemaining(isTrue));
-    console.log(remainingCharacters);
+    removeCharactersFromRemaining(isTrue);
   }
 
   const removeCharactersFromRemaining = isTrue => {
-    let filteredArr;
     if (isTrue){
       // if the query was true,remove characters from remainingCharacters that are not in queryCharacters
-      filteredArr = remainingCharacters.filter(c => {
+      let filteredArr = remainingCharacters.filter(c => {
         let present = false;
         // each c of remaining characters...
         for (const char of queryCharacters){
@@ -85,11 +83,11 @@ function App() {
         return present;
       })
       console.log(filteredArr);
-      // setRemainingCharacters(filteredArr);
+      setRemainingCharacters(filteredArr);
       console.log(remainingCharacters);
     } else {
       // If opponent is not in query
-      filteredArr = remainingCharacters.filter(c => {
+      let filteredArr = remainingCharacters.filter(c => {
         let present = true;
         // each c of remaining characters...
         for (const char of queryCharacters){
@@ -102,11 +100,9 @@ function App() {
         return present;
       })
       console.log(filteredArr);
-      // setRemainingCharacters(filteredArr);
-      
+      setRemainingCharacters(filteredArr);
       console.log(remainingCharacters);
     }
-    return filteredArr;
   }
 
   
