@@ -26,10 +26,11 @@ h4 {
 	text-align: center;
 }
 
-.entireGame{
-	display:flex;
+.entireGame {
+	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	margin-right: 200px;
 }
 
 /* #playerContainer{
@@ -39,21 +40,20 @@ h4 {
 
 } */
 
-.output-card{
-	border: 2px black dashed;	
+.output-card {
+	border: 2px black dashed;
 	width: 200px;
 	text-align: center;
 }
 
-.chosen-image{
+.chosen-image {
 	max-width: 100%;
-
 }
 
-h1{
- 	text-align: center;
+h1 {
+	text-align: center;
 }
 
-h3{
+h3 {
 	margin: 1.1rem;
 }
