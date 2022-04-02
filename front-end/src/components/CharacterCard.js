@@ -25,11 +25,11 @@ const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, rem
         }
     }
 
-    useEffect(() => checkEliminated, [remainingCharacters])
+    useEffect(() => checkEliminated(), [remainingCharacters])
 
     return(
-        <div className="board font"  onClick = {() => handleCardClick()}>
-                <img className={`card_image  ${eliminatedClass}`} src={imgSource} alt="not found"/>
+        <div className={`board font ${eliminatedClass}`}  onClick = {() => handleCardClick()}>
+                <img className="card_image" src={imgSource} alt="not found"/>
                 <h4>{character.name}</h4> 
         </div>
         
