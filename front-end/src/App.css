@@ -1,3 +1,12 @@
+.game_title{
+	background-color: #A4CC98;
+	margin-top: 0;
+	height: 100px;	
+}
+
+.game_title_text{
+	padding: 25px;
+}
 .card_image {
 	max-width: 100%;
 }
@@ -25,42 +34,54 @@
 
 h4 {
 	text-align: center;
-	/* margin: 10px 0; */
+	margin: 10px 0;
 }
 
 .entireGame {
 	display: flex;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	justify-content: space-between;
 	margin-right: 65px;
 }
 
 #playerContainer{
 	display: flex;
-	flex-wrap: nowrap;
+	/* flex-wrap: nowrap; */
+	flex-direction: column;
+	width: 25%;
+    margin-left: 5%;
+	background-color: #AAAAAA;
+	padding: 15px;
+	border-radius: 12px;
+	height: 600px;
 	/* border: 2px red dashed; */
 }
 
 #topSection{
-	display: inline-flex;
-	flex-wrap: wrap;
+	/* display: inline-flex; */
+	/* flex-wrap: wrap; */
+	display: flex;
 	height: 10px;
 
 }
+#quesionButton{
+ text-align: center;
+}
 
 .output-card {
-	border: 2px black dashed;
-	width: 270px;
-	height: 461px;
+	/* border: 2px black dashed; */
+	width: 100%;
+	height: 350px;
 	text-align: center;
 	text-transform: capitalize;
-	background-color: rgb(202, 167, 224);
+	height: 460px;
+	/* background-color: rgb(202, 167, 224); */
 }
 
 .anon {
-	border: 2px black dashed;
+	/* border: 2px black dashed;  */
 	width: 270px;
-	height: 461px;
+	height: 400px;
 	text-align: center;
 }
 
@@ -70,6 +91,7 @@ h4 {
 
 h1 {
 	text-align: center;
+	margin: 0;
 }
 
 h3 {
@@ -82,16 +104,27 @@ h3 {
 }
 
 #questionForm{
-	border: 2px black dashed;
+	/* border: 2px black dashed; */
 	text-align: center;
-	margin-top: 10rem;
+	
 }
 
 .score{
 	border: 2px black dashed;
-	width: 270px;
+    height: fit-content;
+	width: 25%;
+    margin-left: 5%;
 }
+.buttons{
+	text-align: center;
+	border-radius: 12px;
+	background-color: #A4CC98;
+	border: none;
+	padding: 10px;
+	font-size: large;
+	margin: 1%;
 
+}
 .dropdown {
 	display: none;
 }
@@ -99,41 +132,43 @@ h3 {
 .questions {
 	display: flex;
 	list-style: none;
-  }
+	text-align: center;
+}
 
 .questionOptions {
 	position: relative;
 	font-size: 14px;
-  }
-  
-  .questionOptions h5 {
+}
+
+.questionOptions h5 {
 	display: block;
 	font-size: inherit;
 	color: inherit;
 	text-decoration: none;
-  }
-  
-  .questionOptions button {
+}
+
+.questionOptions button {
 	color: inherit;
 	font-size: inherit;
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
 	width: 100%;
-  }
-  
-  .questionOptions h5,
-  .questionOptions button {
+}
+
+.questionOptions h5,
+.questionOptions button {
 	text-align: left;
 	padding: 0.7rem 1rem;
-  }
-  
-  .questionOptions a:hover,
-  .questionOptions button:hover {
+	width: 200px;
+}
+
+.questionOptions a:hover,
+.questionOptions button:hover {
 	background-color: #f2f2f2;
-  }
-  
-  .arrow::after {
+}
+
+.arrow::after {
 	content: "";
 	display: inline-block;
 	margin-left: 0.28em;
@@ -141,14 +176,14 @@ h3 {
 	border-top: 0.42em solid;
 	border-right: 0.32em solid transparent;
 	border-left: 0.32em solid transparent;
-  }
-  
-  .dropdown {
+}
+
+.dropdown {
 	position: absolute;
 	right: 0;
 	left: auto;
 	box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08),
-	  0 4px 6px -2px rgba(71, 63, 79, 0.16);
+		0 4px 6px -2px rgba(71, 63, 79, 0.16);
 	font-size: 0.875rem;
 	z-index: 9999;
 	min-width: 10rem;
@@ -157,17 +192,18 @@ h3 {
 	background-color: #fff;
 	border-radius: 0.5rem;
 	display: none;
-  }
-  
-  .dropdown.show {
+}
+
+.dropdown.show {
 	display: block;
-  }
-  
-  .dropdown .dropdown-submenu {
+}
+
+.eliminated {
+	background-color: red;
+}
+
+.dropdown .dropdown-submenu {
 	position: absolute;
 	left: 100%;
 	top: -7px;
-  }
-
-
-  
+}

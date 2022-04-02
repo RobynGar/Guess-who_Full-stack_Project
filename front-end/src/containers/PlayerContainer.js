@@ -4,14 +4,9 @@ import QuestionForm from "../components/QuestionForm";
 import CharacterCard from "../components/CharacterCard";
 
 
-const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, startGame}) => {
+const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, setQueryOption}) => {
     
-    const handleStartClick = () => {
-        console.log(chosenCharacter.name);
-        if (chosenCharacter.name !== ""){
-            startGame();
-        }
-    }
+    
     
     // const chosenCharacterMap = () => characterList.map(char => {
     //     if (char.id === chosenCharacter.id){
@@ -30,16 +25,10 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     return (
     <>
     <div id='playerContainer'>
-        <div id='topSection'>
-    <ChosenCharacter  chosenCharacter={chosenCharacter} />
-    <PlayerSection />
-    </div>
-        <div id='questionForm'>
-    <h4>Ask your Questions below</h4>
-    <QuestionForm />
-    </div>
-    <button onClick={() => handleStartClick()}>Start game</button>
-        
+
+        <ChosenCharacter  chosenCharacter={chosenCharacter} />
+        <PlayerSection />
+
     </div>
     </>
     );
