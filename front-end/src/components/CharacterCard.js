@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, remainingCharacters}) => {
+const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, remainingCharacters, makeGuess}) => {
     
     const imgSource = `../images/${character.name}.png`
     const [eliminatedClass, setEliminatedClass] = useState('');
@@ -22,8 +22,10 @@ const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, rem
             
         } else {
             choosePlayerCharacter(character);
+            makeGuess(character)
         }
     }
+    
 
     useEffect(() => checkEliminated(), [remainingCharacters])
 

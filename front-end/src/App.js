@@ -16,6 +16,7 @@ function App() {
   // const[character, setCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
   const[displayMessage, setDisplayMessage] = useState("Click on your character below");
   const[queryOption, setQueryOption] = useState("");
+  const[guessCharacter, setGuessCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
 
   const fetchRandomCharacters = () => {
     fetch("http://localhost:8080/chars/random/15")
@@ -40,6 +41,17 @@ function App() {
     // sets the computerCharacter to the character at position random index no. 
     setComputerCharacter(characterList[rand]);
   }
+
+  const makeGuess = (guess) => {
+    setGuessCharacter(guess);
+    setDisplayMessage(`You are guessing ${guessCharacter.name}`)
+    if(guessCharacter.id === computerCharacter.id){
+      setDisplayMessage('Winner')
+    } else {
+      setDisplayMessage('Your guess was incorrect try again')
+    }
+  }
+  
 
   const startGame = () => {
     // when game starts, random opponent character is chosen
@@ -115,7 +127,7 @@ function App() {
       <div className="game_title">
       <h1 className="game_title_text">??Guess Who??</h1>
       </div>
-      <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} />
+      <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} />
       <div className='entireGame'>
       <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
