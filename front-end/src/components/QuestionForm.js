@@ -23,7 +23,7 @@ const QuestionForm = ({compareQueryToBoard, setQueryOption, setDisplayMessage}) 
             // create a prop called options which takes our questions.js
         })}
         </ul>
-        <button type="button" onClick={() => submitQuestion()}>Ask question!</button>
+        <button type="button" className="buttons" onClick={() => submitQuestion()}>Ask question!</button>
         </>
     )
 }

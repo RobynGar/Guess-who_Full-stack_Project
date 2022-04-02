@@ -13,7 +13,7 @@ const TopBarContainer = ({compareQueryToBoard, displayMessage, startGame, chosen
         <div id='questionForm'>
             <h2>{displayMessage}</h2>
             <QuestionForm compareQueryToBoard={compareQueryToBoard} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage}/>
-            <button onClick={() => handleStartClick()}>Start game</button>
+            <button className= "buttons" onClick={() => handleStartClick()}>Start game</button>
         </div>
         
     )

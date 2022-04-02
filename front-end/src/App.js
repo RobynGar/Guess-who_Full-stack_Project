@@ -112,14 +112,15 @@ function App() {
   
   return (
     <>
-      
-      <h1>??Guess Who??</h1>
+      <div className="game_title">
+      <h1 className="game_title_text">??Guess Who??</h1>
+      </div>
       <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} />
       <div className='entireGame'>
       <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
-      <h2>PC character is: {computerCharacter.name}</h2> 
+      {/* <h2>PC character is: {computerCharacter.name}</h2>  */}
       
       </div>
     </>

@@ -1,3 +1,12 @@
+.game_title{
+	background-color: #A4CC98;
+	margin-top: 0;
+	height: 100px;	
+}
+
+.game_title_text{
+	padding: 25px;
+}
 .card_image {
 	max-width: 100%;
 }
@@ -7,7 +16,7 @@
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 1fr 1fr 1fr;
 	background-color: rgb(202, 167, 224);
-	width: 60%;
+	width: 70%;
 	margin-left: 1rem;
 	border: 2px solid black;
 	grid-gap: 50 rem;
@@ -25,41 +34,54 @@
 
 h4 {
 	text-align: center;
-	/* margin: 10px 0; */
+	margin: 10px 0;
 }
 
 .entireGame {
 	display: flex;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	justify-content: space-between;
 	margin-right: 65px;
 }
 
-#playerContainer {
+#playerContainer{
 	display: flex;
-	flex-wrap: nowrap;
+	/* flex-wrap: nowrap; */
+	flex-direction: column;
+	width: 25%;
+    margin-left: 5%;
+	background-color: #AAAAAA;
+	padding: 15px;
+	border-radius: 12px;
+	height: 500px;
 	/* border: 2px red dashed; */
 }
 
-#topSection {
-	display: inline-flex;
-	flex-wrap: wrap;
+#topSection{
+	/* display: inline-flex; */
+	/* flex-wrap: wrap; */
+	display: flex;
 	height: 10px;
+
+}
+#quesionButton{
+ text-align: center;
 }
 
 .output-card {
-	border: 2px black dashed;
-	width: 270px;
-	height: 461px;
+	/* border: 2px black dashed; */
+	width: 100%;
+	height: 350px;
 	text-align: center;
 	text-transform: capitalize;
-	background-color: rgb(202, 167, 224);
+	height: 460px;
+	/* background-color: rgb(202, 167, 224); */
 }
 
 .anon {
-	border: 2px black dashed;
+	/* border: 2px black dashed;  */
 	width: 270px;
-	height: 461px;
+	height: 400px;
 	text-align: center;
 }
 
@@ -69,6 +91,7 @@ h4 {
 
 h1 {
 	text-align: center;
+	margin: 0;
 }
 
 h3 {
@@ -80,17 +103,28 @@ h3 {
 	font-size: 1.5rem;
 }
 
-#questionForm {
-	border: 2px black dashed;
+#questionForm{
+	/* border: 2px black dashed; */
 	text-align: center;
-	margin-top: 10rem;
+	
 }
 
-.score {
+.score{
 	border: 2px black dashed;
-	width: 270px;
+    height: fit-content;
+	width: 25%;
+    margin-left: 5%;
 }
+.buttons{
+	text-align: center;
+	border-radius: 12px;
+	background-color: #A4CC98;
+	border: none;
+	padding: 10px;
+	font-size: large;
+	margin: 1%;
 
+}
 .dropdown {
 	display: none;
 }
@@ -98,6 +132,7 @@ h3 {
 .questions {
 	display: flex;
 	list-style: none;
+	text-align: center;
 }
 
 .questionOptions {
@@ -125,6 +160,7 @@ h3 {
 .questionOptions button {
 	text-align: left;
 	padding: 0.7rem 1rem;
+	width: 200px;
 }
 
 .questionOptions a:hover,
