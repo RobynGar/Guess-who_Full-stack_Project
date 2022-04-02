@@ -9,10 +9,23 @@ const TopBarContainer = ({compareQueryToBoard, displayMessage, startGame, chosen
         }
     }
     const handleGuessClick = () => {
+        setDisplayMessage('Click on a character you wish to guess')
         if(makeGuess.name !== ""){
            makeGuess(); 
         }
     }
+
+    // const handleCardClick = () => {
+    //     if (computerCharacter.name !== ""){
+    //         makeGuess(character);
+    //     } else {
+    //         choosePlayerCharacter(character);
+            
+    //     }
+    // }
+
+
+    
 
     return (
         <div id='questionForm'>

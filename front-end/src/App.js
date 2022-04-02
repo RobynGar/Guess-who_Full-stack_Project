@@ -44,12 +44,15 @@ function App() {
 
   const makeGuess = (guess) => {
     setGuessCharacter(guess);
-    setDisplayMessage(`You are guessing ${guessCharacter.name}`)
-    if(guessCharacter.id === computerCharacter.id){
-      setDisplayMessage('Winner')
+    // setDisplayMessage(`You are guessing ${guessCharacter.name}`)
+    if (computerCharacter.name !== ""){
+      if(guessCharacter.id === computerCharacter.id){
+      setDisplayMessage(`Congratulations, it was ${guessCharacter.name}!`)
     } else {
-      setDisplayMessage('Your guess was incorrect try again')
+      setDisplayMessage(`${guessCharacter.name} is incorrect, try again`)
     }
+    }
+    
   }
   
 
@@ -129,7 +132,7 @@ function App() {
       </div>
       <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} />
       <div className='entireGame'>
-      <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter}/>
+      <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
       {/* <h2>PC character is: {computerCharacter.name}</h2>  */}
