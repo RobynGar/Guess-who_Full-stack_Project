@@ -48,7 +48,9 @@ function App() {
     if (computerCharacter.name !== ""){
       if(guessCharacter.id === computerCharacter.id){
       setDisplayMessage(`Congratulations, it was ${guessCharacter.name}!`)
-    } else {
+    } else if (guessCharacter.name === ""){
+    }
+    else {
       setDisplayMessage(`${guessCharacter.name} is incorrect, try again`)
     }
     }

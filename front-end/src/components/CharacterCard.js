@@ -19,7 +19,7 @@ const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, rem
     // if game has not started (computer character has not been assigned), then can change player character by clicking on other cards
     const handleCardClick = () => {
         if (computerCharacter.name !== ""){
-            // makeGuess(character);
+            makeGuess(character);
         } else {
             choosePlayerCharacter(character);
             
