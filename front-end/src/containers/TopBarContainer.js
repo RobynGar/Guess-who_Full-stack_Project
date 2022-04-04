@@ -1,6 +1,6 @@
 import QuestionForm from "../components/QuestionForm";
 
-const TopBarContainer = ({compareQueryToBoard, displayMessage, startGame, chosenCharacter, setQueryOption, setDisplayMessage, makeGuess}) => {
+const TopBarContainer = ({compareQueryToBoard, displayMessage, startGame, chosenCharacter, setQueryOption, setDisplayMessage, setIsGuessing}) => {
 
 
     const handleStartClick = () => {
@@ -8,12 +8,14 @@ const TopBarContainer = ({compareQueryToBoard, displayMessage, startGame, chosen
             startGame();
         }
     }
+    // const handleGuessSubmitClick= () => {
+    //     makeGuess();
+
+    // }
     const handleGuessClick = () => {
-        setDisplayMessage('Click on a character you wish to guess')
-        if(makeGuess.name !== ""){
-           makeGuess(); 
-        }
-    }
+        setDisplayMessage('Click on a character then make a guess')
+        setIsGuessing(true);
+    } 
 
     // const handleCardClick = () => {
     //     if (computerCharacter.name !== ""){

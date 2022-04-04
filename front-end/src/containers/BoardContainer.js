@@ -1,6 +1,6 @@
 import CharacterCard from "../components/CharacterCard";
 
-const BoardContainer = ({characterList, choosePlayerCharacter, computerCharacter, remainingCharacters, makeGuess}) => {
+const BoardContainer = ({characterList, choosePlayerCharacter, computerCharacter, remainingCharacters, makeGuess, isGuessing, setIsGuessing}) => {
     
 
 
@@ -9,7 +9,7 @@ const BoardContainer = ({characterList, choosePlayerCharacter, computerCharacter
 
         
 
-        return <CharacterCard id={index} remainingCharacters={remainingCharacters} className='containerItems' character={character} key={character.id} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
+        return <CharacterCard id={index} remainingCharacters={remainingCharacters} className='containerItems' character={character} key={character.id} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess} isGuessing={isGuessing} setIsGuessing={setIsGuessing}/>
     })
     
     

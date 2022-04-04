@@ -80,7 +80,7 @@ h4 {
 
 .anon {
 	/* border: 2px black dashed;  */
-	width: 270px;
+	width: 100%;
 	height: 400px;
 	text-align: center;
 }
@@ -201,6 +201,7 @@ h3 {
 .eliminated {
 	background-color: red;
 }
+
 
 .dropdown .dropdown-submenu {
 	position: absolute;

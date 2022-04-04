@@ -16,7 +16,7 @@ function App() {
   // const[character, setCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
   const[displayMessage, setDisplayMessage] = useState("Click on your character below");
   const[queryOption, setQueryOption] = useState("");
-  const[guessCharacter, setGuessCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
+  const [isGuessing, setIsGuessing] = useState(false);
 
   const fetchRandomCharacters = () => {
     fetch("http://localhost:8080/chars/random/15")
@@ -42,16 +42,19 @@ function App() {
     setComputerCharacter(characterList[rand]);
   }
 
-  const makeGuess = (guess) => {
-    setGuessCharacter(guess);
-    // setDisplayMessage(`You are guessing ${guessCharacter.name}`)
+  const makeGuess = (c) => {
+    
+    console.log('makeGuess called');
+    
+   
     if (computerCharacter.name !== ""){
-      if(guessCharacter.id === computerCharacter.id){
-      setDisplayMessage(`Congratulations, it was ${guessCharacter.name}!`)
-    } else if (guessCharacter.name === ""){
-    }
-    else {
-      setDisplayMessage(`${guessCharacter.name} is incorrect, try again`)
+      if(c.id === computerCharacter.id){
+        console.log('winner');
+      setDisplayMessage(`Congratulations, it was ${c.name}!`)
+    } else {
+      console.log('loser');
+      setDisplayMessage(`${c.name} is incorrect, try again`)
+      setRemainingCharacters(remainingCharacters.filter(character => character !== c))
     }
     }
     
@@ -132,9 +135,9 @@ function App() {
       <div className="game_title">
       <h1 className="game_title_text">??Guess Who??</h1>
       </div>
-      <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} />
+      <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setIsGuessing={setIsGuessing}/>
       <div className='entireGame'>
-      <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
+      <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess} isGuessing={isGuessing} setIsGuessing={setIsGuessing}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
       {/* <h2>PC character is: {computerCharacter.name}</h2>  */}

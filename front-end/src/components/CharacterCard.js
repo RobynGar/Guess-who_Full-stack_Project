@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 
-const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, remainingCharacters, makeGuess}) => {
+const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, remainingCharacters, makeGuess, isGuessing, setIsGuessing}) => {
     
     const imgSource = `../images/${character.name}.png`
     const [eliminatedClass, setEliminatedClass] = useState('');
+    
 
     // when remainingCharacters changes, check to see if character has been eliminated, if it hasn't then it is not given eliminated class. Has to be set then unset for not eliminated just because
     const checkEliminated = () => {
@@ -18,11 +19,17 @@ const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, rem
 
     // if game has not started (computer character has not been assigned), then can change player character by clicking on other cards
     const handleCardClick = () => {
-        if (computerCharacter.name !== ""){
-            makeGuess(character);
-        } else {
+        if (computerCharacter.name === ""){
             choosePlayerCharacter(character);
             
+
+        } else if(isGuessing) {
+            // setGuessCharacter(character);
+            makeGuess(character)
+            setIsGuessing(false);
+            console.log(isGuessing);
+        } else{
+            console.log('rejected');
         }
     }
     
