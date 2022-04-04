@@ -71,14 +71,16 @@ function App() {
     }
 
 
-
+//uncommented comparequerytoboard
+//made timeout for this
   const runComputerTurn = async () => {
     if (playerTurn === 'computer') {
       setDisplayMessage("Computer's turn");
       await makeRandomQuestion();
-      //  compareQueryToBoard();
-      setPlayerTurn('player')
-      setDisplayMessage("Your turn to ask a question");
+      compareQueryToBoard();
+      setTimeout(() => {setPlayerTurn('player')
+      setDisplayMessage("Your turn to ask a question");}, 3000)
+      
     }
   }
 
