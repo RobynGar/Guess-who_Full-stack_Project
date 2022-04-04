@@ -225,7 +225,7 @@ function App() {
       <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn}/>
       <div className='entireGame'>
       <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
-      <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
+      <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption} remainingComputerCharacters={remainingComputerCharacters}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
       {/* <h2>PC character is: {computerCharacter.name}</h2>  */}
       

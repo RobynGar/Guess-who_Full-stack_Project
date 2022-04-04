@@ -2,9 +2,10 @@ import ChosenCharacter from "../components/ChosenCharacter";
 import PlayerSection from "../components/PlayerSection";
 import QuestionForm from "../components/QuestionForm";
 import CharacterCard from "../components/CharacterCard";
+import MiniBoard from "../components/MiniBoard";
 
 
-const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, setQueryOption}) => {
+const PlayerContainer = ({characterList, character, queryCharacters, choosePlayerCharacter, chosenCharacter, setQueryOption, remainingComputerCharacters}) => {
     
     
     
@@ -27,6 +28,7 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     <div id='playerContainer'>
         <ChosenCharacter  chosenCharacter={chosenCharacter} />
         <PlayerSection />
+        <MiniBoard characterList={characterList} remainingComputerCharacters={remainingComputerCharacters}/>
     </div>
     </>
     );
