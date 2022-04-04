@@ -25,11 +25,14 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
 
     return (
     <>
-    <div id='playerContainer'>
-        <ChosenCharacter  chosenCharacter={chosenCharacter} />
-        {/* <PlayerSection /> */}
+    <section id='player-container'>
+        <article id='chosen-character'>
+          <ChosenCharacter  chosenCharacter={chosenCharacter} />  
+        </article>
+        <article id="mini-board">
         <MiniBoard characterList={characterList} remainingComputerCharacters={remainingComputerCharacters}/>
-    </div>
+        </article>
+    </section>
     </>
     );
 

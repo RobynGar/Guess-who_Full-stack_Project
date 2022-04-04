@@ -11,6 +11,7 @@
 	max-width: 100%;
 }
 
+
 .boardContainer {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
@@ -63,16 +64,22 @@ h4 {
 	margin-right: 65px;
 }
 
-#playerContainer{
+.winner {
+	border-color: gold;
+	background-color: gold;
+}
+
+#player-container{
 	display: flex;
-	/* flex-wrap: nowrap; */
+	flex-wrap: nowrap;
 	flex-direction: column;
+	justify-content: space-between;
 	width: 25%;
     margin-left: 5%;
 	background-color: #AAAAAA;
 	padding: 15px;
 	border-radius: 12px;
-	height: 600px;
+	height: 80%;
 	/* border: 2px red dashed; */
 }
 

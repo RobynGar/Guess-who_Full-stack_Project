@@ -11,19 +11,29 @@ import { compQuestions} from './components/compQuestions';
 function App() {
 
   const[characterList, setCharacterList] = useState([]);
+  const[remainingCharacters, setRemainingCharacters]= useState([]);
+  const[remainingComputerCharacters, setRemainingComputerCharacters]= useState([]);
+  
   const[chosenCharacter, setChosenCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
   const[computerCharacter, setComputerCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
-  const[queryCharacters, setQueryCharacters] = useState([]);
-  const[remainingCharacters, setRemainingCharacters]= useState([]);
-  // const[character, setCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
-  const[displayMessage, setDisplayMessage] = useState("Click on your character below");
+  
   const[queryOption, setQueryOption] = useState("");
-  const[guessCharacter, setGuessCharacter] = useState({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""});
-  const[remainingComputerCharacters, setRemainingComputerCharacters]= useState([]);
-  const[playerTurn, setPlayerTurn] = useState('player');
-  const[computerQuestions, setComputerQuestions] = useState(['hair/blonde', "hair/black", "hair/brown", "hair/hijab", "topColour/red", "topColour/white", "topColour/black", "eyeColour/brown", "eyeColour/blue", "eyeColour/green", "gender/male", "gender/female", "piercings", "beard", "london", "pets", "hairAccessory", "glasses"]);
+  const[queryCharacters, setQueryCharacters] = useState([]);
   const[computerQueryCharacters, setComputerQueryCharacters] = useState([]);
+  const[computerQuestions, setComputerQuestions] = useState(['hair/blonde', "hair/black", "hair/brown", "hair/hijab", "topColour/red", "topColour/white", "topColour/black", "eyeColour/brown", "eyeColour/blue", "eyeColour/green", "gender/male", "gender/female", "piercings", "beard", "london", "pets", "hairAccessory", "glasses"]);
+  
+  const[displayMessage, setDisplayMessage] = useState("Click on your character below");
+  const[playerTurn, setPlayerTurn] = useState('player');
+  const[gameWon, setGameWon] = useState('');
+  
 
+  const resetGame = () => {
+    setCharacterList([]); setChosenCharacter({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""}) ; setComputerCharacter({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""}) ;
+     setQueryCharacters([]) ; setRemainingCharacters([]) ; setDisplayMessage("Click on your character below") ; setRemainingComputerCharacters([]) ; setQueryOption("") ; 
+     setComputerQuestions(['hair/blonde', "hair/black", "hair/brown", "hair/hijab", "topColour/red", "topColour/white", "topColour/black", "eyeColour/brown", "eyeColour/blue", "eyeColour/green", "gender/male", "gender/female", "piercings", "beard", "london", "pets", "hairAccessory", "glasses"]);
+     setPlayerTurn('player') ; setGameWon('');
+     fetchRandomCharacters();
+  }
 
   const fetchRandomCharacters = () => {
     fetch("http://localhost:8080/chars/random/15")
@@ -57,12 +67,20 @@ function App() {
     setComputerCharacter(characterList[rand]);
   }
 
+
+  function playWin() {
+    var audio = new Audio('../win.mp3');
+    audio.play();
+  }
+
   const makeGuess = (guess) => {
     // setGuessCharacter(guess);
     // setDisplayMessage(`You are guessing ${guessCharacter.name}`)
     if (computerCharacter.name !== ""){
       if(guess.id === computerCharacter.id){
-        setDisplayMessage(`Congratulations, it was ${guessCharacter.name}!`)
+        setGameWon('player');
+        playWin();
+        setDisplayMessage(`Congratulations, it was ${guess.name}!`);
       // } else if (guessCharacter.name === ""){
       } else {
         setDisplayMessage(`${guess.name} is incorrect, try again`);
@@ -76,7 +94,7 @@ function App() {
 //uncommented comparequerytoboard
 //made timeout for this
   const runComputerTurn = async () => {
-    if (playerTurn === 'computer') {
+    // if (playerTurn === 'computer') {
       setDisplayMessage("Computer's turn");
       if (remainingComputerCharacters.length <= 4){
         computerGuessAnswer();
@@ -84,10 +102,17 @@ function App() {
         await makeRandomQuestion();
         compareQueryToBoard();
       }
-      setTimeout(() => {setPlayerTurn('player')
-      setDisplayMessage("Your turn to ask a question");}, 3000)
-      
-    }
+    if (gameWon === '') {
+      setTimeout(() => {
+        setPlayerTurn('player');
+        setDisplayMessage("Your turn to ask a question");
+      }, 2500)
+    } else if (gameWon === 'computer') {setDisplayMessage('ding dong')}
+  }
+
+  function playLose() {
+    var audio = new Audio('../fail.mp3');
+    audio.play();
   }
 
   const computerGuessAnswer = () => {
@@ -95,10 +120,11 @@ function App() {
     let newGuess = remainingComputerCharacters[Math.floor(Math.random() * remainingComputerCharacters.length)]
     console.log(newGuess);
     if (newGuess.id === chosenCharacter.id){
+      setGameWon('computer');
       setDisplayMessage(`The AI guessed ${chosenCharacter.name}, you lose!`);
+      playLose();
     } else {
       setRemainingComputerCharacters(remainingComputerCharacters.filter(c => c.id !== newGuess.id));
-      setPlayerTurn('player');
     }
   }
 
@@ -106,16 +132,12 @@ function App() {
     let random = Math.floor(Math.random() * computerQuestions.length);
     let computerQuery = computerQuestions[random];
     console.log(computerQuery);
+    setDisplayMessage(compQuestions[random].message)
     sendQueryRequest(computerQuery);
     // filter computer questions array and make a new array that 
     setComputerQuestions(computerQuestions.filter(query => query !== computerQuery))
   }
     
-  
-  
-
-  
-
   const sendQueryRequest = (option) => {
     console.log('sending');
     fetch(`http://localhost:8080/chars/features/${option}`)
@@ -235,7 +257,7 @@ function App() {
 
   useEffect(fetchRandomCharacters, []);
   useEffect(() => sendQueryRequest(queryOption), [queryOption]);
-  useEffect(() => {setTimeout(runComputerTurn, 1000)}, [playerTurn]);
+  useEffect(() => {if (playerTurn === 'computer'){setTimeout(runComputerTurn, 1000)}}, [playerTurn]);
   useEffect(() => compareQueryToBoard(), [computerQueryCharacters]);
   
   return (
@@ -243,14 +265,13 @@ function App() {
       <div className="game_title">
       <h1 className="game_title_text">??Guess Who??</h1>
       </div>
-      <TopBarContainer compareQueryToBoard={compareQueryToBoard} playerTurn={playerTurn} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn}/>
+      <TopBarContainer compareQueryToBoard={compareQueryToBoard} resetGame={resetGame} playerTurn={playerTurn} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn}/>
       <div className='entireGame'>
-      <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
+      <BoardContainer gameWon={gameWon} remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption} remainingComputerCharacters={remainingComputerCharacters}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
-       <h2>PC character is: {computerCharacter.name}</h2> 
-      
       </div>
+      <h2>PC character is: {computerCharacter.name}</h2> 
     </>
   );
 }

@@ -7,6 +7,10 @@ export const compQuestions = [
         title: "hair/black",
         message: "Is their hair black?"
     },
+    {
+        title: "hair/brown",
+        message: "Is their hair brown?"
+    },
     { title: "hair/hijab", message: "Are they wearing a hijab?"},
     { title: "topColour/red", message: "Is they wearing a red top?"},
     { title: "topColour/white", message: "Is they wearing a white top?"},
