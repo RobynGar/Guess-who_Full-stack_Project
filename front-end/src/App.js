@@ -23,6 +23,7 @@ function App() {
   const[computerQuestions, setComputerQuestions] = useState(['hair/blonde', "hair/black", "hair/brown", "hair/hijab", "topColour/red", "topColour/white", "topColour/black", "eyeColour/brown", "eyeColour/blue", "eyeColour/green", "gender/male", "gender/female", "piercings", "beard", "london", "pets", "hairAccessory", "glasses"]);
   
   const[displayMessage, setDisplayMessage] = useState("Click on your character below");
+  const[displayComputerMessage, setDisplayComputerMessage] = useState("");
   const[playerTurn, setPlayerTurn] = useState('player');
   const[gameWon, setGameWon] = useState('');
   
@@ -106,7 +107,7 @@ function App() {
       setTimeout(() => {
         setPlayerTurn('player');
         setDisplayMessage("Your turn to ask a question");
-      }, 2500)
+      }, 3500)
     } else if (gameWon === 'computer') {setDisplayMessage('ding dong')}
   }
 
@@ -132,7 +133,7 @@ function App() {
     let random = Math.floor(Math.random() * computerQuestions.length);
     let computerQuery = computerQuestions[random];
     console.log(computerQuery);
-    setDisplayMessage(compQuestions[random].message)
+    setDisplayComputerMessage(compQuestions[random].message)
     sendQueryRequest(computerQuery);
     // filter computer questions array and make a new array that 
     setComputerQuestions(computerQuestions.filter(query => query !== computerQuery))
@@ -265,7 +266,7 @@ function App() {
       <div className="game_title">
       <h1 className="game_title_text">??Guess Who??</h1>
       </div>
-      <TopBarContainer compareQueryToBoard={compareQueryToBoard} resetGame={resetGame} playerTurn={playerTurn} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn}/>
+      <TopBarContainer compareQueryToBoard={compareQueryToBoard} resetGame={resetGame} playerTurn={playerTurn} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn} displayComputerMessage={displayComputerMessage} setDisplayComputerMessage={setDisplayComputerMessage}/>
       <div className='entireGame'>
       <BoardContainer gameWon={gameWon} remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption} remainingComputerCharacters={remainingComputerCharacters}/>

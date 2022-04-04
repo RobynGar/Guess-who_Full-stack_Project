@@ -1,6 +1,6 @@
 import QuestionForm from "../components/QuestionForm";
 
-const TopBarContainer = ({compareQueryToBoard, resetGame, displayMessage, playerTurn, startGame, chosenCharacter, setQueryOption, setDisplayMessage, makeGuess, setPlayerTurn, runComputerTurn}) => {
+const TopBarContainer = ({compareQueryToBoard, resetGame, displayMessage, playerTurn, startGame, chosenCharacter, setQueryOption, setDisplayMessage, makeGuess, setPlayerTurn, runComputerTurn, displayComputerMessage, setDisplayComputerMessage}) => {
 
 
     const handleStartClick = () => {
@@ -35,6 +35,7 @@ const TopBarContainer = ({compareQueryToBoard, resetGame, displayMessage, player
     return (
         <div id='questionForm'>
             <h2>{displayMessage}</h2>
+             <h3>{displayComputerMessage}</h3>
             <QuestionForm compareQueryToBoard={compareQueryToBoard} playerTurn={playerTurn} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn}/>
             <button className= "buttons" onClick={() => handleStartClick()}>Start game</button>
             <button className= "buttons" onClick={() => handleGuessClick()}>Make Guess</button>

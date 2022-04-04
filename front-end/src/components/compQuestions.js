@@ -12,9 +12,9 @@ export const compQuestions = [
         message: "Is their hair brown?"
     },
     { title: "hair/hijab", message: "Are they wearing a hijab?"},
-    { title: "topColour/red", message: "Is they wearing a red top?"},
-    { title: "topColour/white", message: "Is they wearing a white top?"},
-    { title: "topColour/black", message: "Is they wearing a black top?"},
+    { title: "topColour/red", message: "Are they wearing a red top?"},
+    { title: "topColour/white", message: "Are they wearing a white top?"},
+    { title: "topColour/black", message: "Are they wearing a black top?"},
     { title: "eyeColour/brown", message: "Are their eyes brown?"},
     { title: "eyeColour/blue", message: "Are their eyes blue?"},
     { title: "eyeColour/green", message: "Are their eyes green?"},
