@@ -11,9 +11,9 @@ const TopBarContainer = ({compareQueryToBoard, displayMessage, playerTurn, start
     }
     const handleGuessClick = () => {
         setDisplayMessage('Click on a character you wish to guess')
-        if(makeGuess.name !== ""){
-           makeGuess(); 
-        }
+        // if(makeGuess.name !== ""){console.log(makeGuess.name);
+        //    makeGuess(); 
+        // }
     }
 
     // const handleCardClick = () => {

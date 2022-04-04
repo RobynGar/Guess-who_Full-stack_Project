@@ -46,8 +46,8 @@ const MiniCharacterCard = ({remainingComputerCharacters, character}) => {
     return (
         <div className={`miniCard board ${eliminatedClass}`}>
             {/* <img className="card_image" src='../images/thinkEmoji2.png'/> */}
-            {/* <img className="card_image" src={imgSource} alt="not found"/> */}
-            <p>{character.name}</p>
+            <img className="card_image" src={imgSource} alt="not found"/>
+            {/* <p>{character.name}</p> */}
         </div>
     )
 }

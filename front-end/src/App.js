@@ -57,18 +57,19 @@ function App() {
   }
 
   const makeGuess = (guess) => {
-    setGuessCharacter(guess);
+    // setGuessCharacter(guess);
     // setDisplayMessage(`You are guessing ${guessCharacter.name}`)
     if (computerCharacter.name !== ""){
-      if(guessCharacter.id === computerCharacter.id){
-      setDisplayMessage(`Congratulations, it was ${guessCharacter.name}!`)
-    } else if (guessCharacter.name === ""){
+      if(guess.id === computerCharacter.id){
+        setDisplayMessage(`Congratulations, it was ${guessCharacter.name}!`)
+      // } else if (guessCharacter.name === ""){
+      } else {
+        setDisplayMessage(`${guess.name} is incorrect, try again`);
+        setRemainingCharacters(remainingCharacters.filter(c => c.id !== guess.id));
+        setPlayerTurn('computer');
+      }
     }
-    else {
-      setDisplayMessage(`${guessCharacter.name} is incorrect, try again`)
-    }
-    }
-    }
+  }
 
 
 //uncommented comparequerytoboard
