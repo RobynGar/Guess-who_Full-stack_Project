@@ -46,8 +46,17 @@ function App() {
 
   // confetti stuff 
 
+ const canvasStyle = {
+    position: "relative",
+    PointerEvent: "none",
+    width: "100%",
+    height: "100%",
+    top: 0,
+    left: 0
+   };
+
+
   const refAnimationInstance = useRef(null);
-  
 
   const getInstance = useCallback((instance)=> {
     refAnimationInstance.current = instance;
@@ -184,14 +193,14 @@ function App() {
     <>
       <div className="game_title">
       <h1 className="game_title_text">??Guess Who??</h1>
+      <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyle}/>
       </div>
       <TopBarContainer compareQueryToBoard={compareQueryToBoard} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setIsGuessing={setIsGuessing}/>
       <div className='entireGame'>
       <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess} isGuessing={isGuessing} setIsGuessing={setIsGuessing}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
-      <h2>PC character is: {computerCharacter.name}</h2> 
-      <ReactCanvasConfetti refConfetti={getInstance}/>
+      {/* <h2>PC character is: {computerCharacter.name}</h2>  */}
       </div>
     </>
   );
