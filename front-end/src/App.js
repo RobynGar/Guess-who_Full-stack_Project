@@ -110,7 +110,7 @@ function App() {
       if(c.id === computerCharacter.id){
         console.log('winner');
       setDisplayMessage(`Congratulations, it was ${c.name}!`)
-      fire()
+      fire()  // call confetti function 
     } else {
       console.log('loser');
       setDisplayMessage(`${c.name} is incorrect, try again`)
