@@ -5,6 +5,7 @@ import BoardContainer from './containers/BoardContainer';
 import PlayerContainer from './containers/PlayerContainer';
 import TopBarContainer from './containers/TopBarContainer';
 import { questions } from './components/questions';
+import { compQuestions} from './components/compQuestions';
 
 
 function App() {
@@ -77,11 +78,27 @@ function App() {
   const runComputerTurn = async () => {
     if (playerTurn === 'computer') {
       setDisplayMessage("Computer's turn");
-      await makeRandomQuestion();
-      compareQueryToBoard();
+      if (remainingComputerCharacters.length <= 4){
+        computerGuessAnswer();
+      } else {
+        await makeRandomQuestion();
+        compareQueryToBoard();
+      }
       setTimeout(() => {setPlayerTurn('player')
       setDisplayMessage("Your turn to ask a question");}, 3000)
       
+    }
+  }
+
+  const computerGuessAnswer = () => {
+    console.log('guessing');
+    let newGuess = remainingComputerCharacters[Math.floor(Math.random() * remainingComputerCharacters.length)]
+    console.log(newGuess);
+    if (newGuess.id === chosenCharacter.id){
+      setDisplayMessage(`The AI guessed ${chosenCharacter.name}, you lose!`);
+    } else {
+      setRemainingComputerCharacters(remainingComputerCharacters.filter(c => c.id !== newGuess.id));
+      setPlayerTurn('player');
     }
   }
 
