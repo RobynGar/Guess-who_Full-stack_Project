@@ -6,10 +6,7 @@ const BoardContainer = ({characterList, choosePlayerCharacter, computerCharacter
 
 
     const characterMap = characterList.map((character, index) => {
-
-        
-
-        return <CharacterCard id={index} remainingCharacters={remainingCharacters} character={character} key={character.id} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
+        return <CharacterCard id={index} remainingCharacters={remainingCharacters} className='containerItems' character={character} key={character.id} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
     })
     
     

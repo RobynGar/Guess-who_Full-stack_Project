@@ -10,7 +10,6 @@ const CharacterCard = ({character, choosePlayerCharacter, computerCharacter, rem
         setEliminatedClass('eliminated')
         for (const char of remainingCharacters){
             if (char.name === character.name){
-                console.log('not eliminated');
                 setEliminatedClass('')
             }
         }

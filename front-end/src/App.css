@@ -16,11 +16,27 @@
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 1fr 1fr 1fr;
 	background-color: rgb(202, 167, 224);
-	width: 70%;
+	width: 80%;
 	margin-left: 1rem;
 	border: 2px solid black;
 	grid-gap: 50 rem;
 	text-transform: capitalize;
+}
+
+.miniBoardContainer {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: 1fr 1fr 1fr;
+	background-color: rgb(202, 167, 224);
+	width: 90%;
+	margin-left: 1rem;
+	border: 2px solid black;
+	grid-gap: 50 rem;
+}
+
+.mini-eliminated {
+	border-color: red;
+	background-color: red;
 }
 
 .containerItems {

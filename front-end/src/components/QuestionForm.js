@@ -14,7 +14,9 @@ const QuestionForm = ({compareQueryToBoard, setQueryOption, setDisplayMessage, s
         // when they click submit, runs the compareQuery method in App.js
         compareQueryToBoard();
         setPlayerTurn(false);
+        console.log('changing to computer turn');
         runComputerTurn();
+        console.log('pc did its turn');
     }
 
 

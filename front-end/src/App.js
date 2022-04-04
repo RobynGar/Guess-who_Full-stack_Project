@@ -75,11 +75,10 @@ function App() {
     let random = Math.floor(Math.random() * computerQuestions.length);
     let computerQuery = computerQuestions[random];
     sendQueryRequest(computerQuery);
-    console.log(computerQuestions);
     // filter computer questions array and make a new array that 
     setComputerQuestions(computerQuestions.filter(query => query !== computerQuery))
 
-
+    console.log(computerQuery);
   }
     
   
@@ -115,26 +114,19 @@ function App() {
           isTrue = true;
         }
       }
-      if (playerTurn){
-        removeCharactersFromRemaining(isTrue);
-      } else {
-        removeComputerCharactersFromRemaining(isTrue);
-      }
+      removeCharactersFromRemaining(isTrue);
     }
-    else{
+    else {
       for (const char of computerQueryCharacters){
         // for each of the chars returned by the query, see if any of them are the opponent's char. If they are, the query is true, else is false.
         if (char.name === chosenCharacter.name){
           isTrue = true;
         }
       }
-      if (playerTurn){
-        removeCharactersFromRemaining(isTrue);
-      } else {
         removeComputerCharactersFromRemaining(isTrue);
       }
     }
-  }
+  
 
   const removeCharactersFromRemaining = isTrue => {
     if (isTrue){
@@ -151,9 +143,7 @@ function App() {
         }
         return present;
       })
-      console.log(filteredArr);
       setRemainingCharacters(filteredArr);
-      console.log(remainingCharacters);
     } else {
       // If opponent is not in query
       let filteredArr = remainingCharacters.filter(c => {
@@ -168,9 +158,7 @@ function App() {
         }
         return present;
       })
-      console.log(filteredArr);
       setRemainingCharacters(filteredArr);
-      console.log(remainingCharacters);
     }
   }
 
@@ -191,7 +179,7 @@ function App() {
       })
       console.log(filteredArr);
       setRemainingComputerCharacters(filteredArr);
-      console.log(remainingComputerCharacters);
+      console.log(remainingComputerCharacters + '194');
     } else {
       // If opponent is not in query
       let filteredArr = remainingComputerCharacters.filter(c => {
@@ -208,7 +196,7 @@ function App() {
       })
       console.log(filteredArr);
       setRemainingComputerCharacters(filteredArr);
-      console.log(remainingComputerCharacters);
+      console.log(remainingComputerCharacters + '211');
     }
   }
 
@@ -227,7 +215,7 @@ function App() {
       <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption} remainingComputerCharacters={remainingComputerCharacters}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
-      {/* <h2>PC character is: {computerCharacter.name}</h2>  */}
+       <h2>PC character is: {computerCharacter.name}</h2> 
       
       </div>
     </>
