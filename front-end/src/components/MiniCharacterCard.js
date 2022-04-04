@@ -6,11 +6,9 @@ const MiniCharacterCard = ({remainingComputerCharacters, character}) => {
     let imgSource = `../images/${character.name}.png`;
 
     const checkMiniEliminated = () => {
-        console.log('checking');
         setEliminatedClass('mini-eliminated')
         for (const char of remainingComputerCharacters){
             if (char.name === character.name){
-                console.log(character.name + ' not eliminated');
                 setEliminatedClass('')
 
             }
@@ -31,7 +29,7 @@ const MiniCharacterCard = ({remainingComputerCharacters, character}) => {
     //     setEliminatedClass(temp)
     // }
 
-    useEffect(() => checkMiniEliminated(),[remainingComputerCharacters])
+    useEffect(checkMiniEliminated,[remainingComputerCharacters])
 
     return (
         <div className={`miniCard board ${eliminatedClass}`}>

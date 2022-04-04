@@ -8,7 +8,7 @@ const MiniBoard = ({characterList, remainingComputerCharacters}) => {
 
 
 
-    // useEffect(generateMiniBoard(), [remainingComputerCharacters])
+    // useEffect(generateMiniBoard, [remainingComputerCharacters])
     return(
 
         <section className="miniBoardContainer">
