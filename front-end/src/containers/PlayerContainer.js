@@ -27,7 +27,7 @@ const PlayerContainer = ({characterList, character, queryCharacters, choosePlaye
     <>
     <div id='playerContainer'>
         <ChosenCharacter  chosenCharacter={chosenCharacter} />
-        <PlayerSection />
+        {/* <PlayerSection /> */}
         <MiniBoard characterList={characterList} remainingComputerCharacters={remainingComputerCharacters}/>
     </div>
     </>
