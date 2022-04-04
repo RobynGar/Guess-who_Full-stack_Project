@@ -1,9 +1,11 @@
 
 import './App.css';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef, useCallback} from 'react';
 import BoardContainer from './containers/BoardContainer';
 import PlayerContainer from './containers/PlayerContainer';
 import TopBarContainer from './containers/TopBarContainer';
+import ReactCanvasConfetti from "react-canvas-confetti";
+import Realistic from './components/Realistic';
 
 
 function App() {
@@ -42,6 +44,54 @@ function App() {
     setComputerCharacter(characterList[rand]);
   }
 
+  // confetti stuff 
+
+  const refAnimationInstance = useRef(null);
+  
+
+  const getInstance = useCallback((instance)=> {
+    refAnimationInstance.current = instance;
+  }, [])
+
+  const makeShot = useCallback((particleRatio, opts) => {
+    refAnimationInstance.current &&
+      refAnimationInstance.current({
+        ...opts,
+        origin: { y: 0.7 },
+        particleCount: Math.floor(200 * particleRatio)
+      });
+  }, []);
+
+  const fire = useCallback(() => {
+    makeShot(0.25, {
+      spread: 26,
+      startVelocity: 55
+    });
+
+    makeShot(0.2, {
+      spread: 60
+    });
+
+    makeShot(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8
+    });
+
+    makeShot(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2
+    });
+
+    makeShot(0.1, {
+      spread: 120,
+      startVelocity: 45
+    });
+  }, [makeShot]);
+
+
   const makeGuess = (c) => {
     
     console.log('makeGuess called');
@@ -51,6 +101,7 @@ function App() {
       if(c.id === computerCharacter.id){
         console.log('winner');
       setDisplayMessage(`Congratulations, it was ${c.name}!`)
+      fire()
     } else {
       console.log('loser');
       setDisplayMessage(`${c.name} is incorrect, try again`)
@@ -125,7 +176,6 @@ function App() {
     }
   }
 
-  
 
   useEffect(fetchRandomCharacters, []);
   useEffect(() => sendQueryRequest(queryOption), [queryOption]);
@@ -140,8 +190,8 @@ function App() {
       <BoardContainer remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess} isGuessing={isGuessing} setIsGuessing={setIsGuessing}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
-      {/* <h2>PC character is: {computerCharacter.name}</h2>  */}
-      
+      <h2>PC character is: {computerCharacter.name}</h2> 
+      <ReactCanvasConfetti refConfetti={getInstance}/>
       </div>
     </>
   );
