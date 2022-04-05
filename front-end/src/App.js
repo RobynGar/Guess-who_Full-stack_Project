@@ -70,8 +70,9 @@ function App() {
 
 
   function playWin() {
-    var audio = new Audio('../win.mp3');
-    audio.play();
+        if(displayMessage.contains("Congratulations")) {
+    setPlayerTurn(null)
+    }
   }
 
   const makeGuess = (guess) => {
@@ -80,8 +81,11 @@ function App() {
     if (computerCharacter.name !== ""){
       if(guess.id === computerCharacter.id){
         setGameWon('player');
-        playWin();
         setDisplayMessage(`Congratulations, it was ${guess.name}!`);
+        
+            var audio = new Audio('../win.mp3');
+    audio.play();
+        playWin();
       // } else if (guessCharacter.name === ""){
       } else {
         setDisplayMessage(`${guess.name} is incorrect, try again`);
@@ -112,8 +116,11 @@ function App() {
   }
 
   function playLose() {
-    var audio = new Audio('../fail.mp3');
-    audio.play();
+    if(displayMessage.contains("you lose")) {
+
+    setPlayerTurn(null)
+    }
+
   }
 
   const computerGuessAnswer = () => {
@@ -123,11 +130,16 @@ function App() {
     if (newGuess.id === chosenCharacter.id){
       setGameWon('computer');
       setDisplayMessage(`The AI guessed ${chosenCharacter.name}, you lose!`);
+              var audio = new Audio('../fail.mp3');
+    audio.play();
       playLose();
+
     } else {
       setRemainingComputerCharacters(remainingComputerCharacters.filter(c => c.id !== newGuess.id));
     }
   }
+
+
 
   const  makeRandomQuestion = () => {
     let random = Math.floor(Math.random() * computerQuestions.length);
