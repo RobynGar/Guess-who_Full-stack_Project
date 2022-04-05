@@ -4,7 +4,7 @@ import { questions } from "./questions"
 
 
 
-const QuestionForm = ({compareQueryToBoard, playerTurn, setQueryOption, setDisplayMessage, setPlayerTurn, runComputerTurn}) => {   // this is like our navBar
+const QuestionForm = ({compareQueryToBoard, playerTurn, setQueryOption, setDisplayMessage, setPlayerTurn, runComputerTurn, setDisplayQuestionMessage}) => {   // this is like our navBar
 
 
     const depthLevel = 0;
@@ -23,7 +23,7 @@ const QuestionForm = ({compareQueryToBoard, playerTurn, setQueryOption, setDispl
     return (
         <>
         <ul className="questions" id="questionButton">{questions.map((question, index) => {  // questions = menuItems
-            return <QuestionList setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} options={question} key={index} depthLevel={depthLevel}/>    // QuestionList = MenuItems
+            return <QuestionList setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} options={question} key={index} depthLevel={depthLevel} setDisplayQuestionMessage={setDisplayQuestionMessage}/>    // QuestionList = MenuItems
             // create a prop called options which takes our questions.js
         })}
         </ul>

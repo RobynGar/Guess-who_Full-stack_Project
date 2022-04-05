@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Dropdown from "./Dropdown"
 
 // MenuItem 
-const QuestionList = ({options, depthLevel, setQueryOption, setDisplayMessage}) => {
+const QuestionList = ({options, depthLevel, setQueryOption, setDisplayMessage, setDisplayQuestionMessage}) => {
     
     const [dropdown, setDropdown] = useState(false);
     let ref = useRef();
@@ -49,10 +49,10 @@ const QuestionList = ({options, depthLevel, setQueryOption, setDisplayMessage}) 
                      {options.title}{" "}
                      {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow"/>}
                  </button>
-                 <Dropdown submenu = {options.submenu} dropdown={dropdown} depthLevel={depthLevel} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage}/>
+                 <Dropdown submenu = {options.submenu} dropdown={dropdown} depthLevel={depthLevel} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} setDisplayQuestionMessage={setDisplayQuestionMessage}/>
                  </>
              ) : (
-                 <button type="button" value={options.value} message={options.message} onClick={(event)=> {handleClick(event); setDisplayMessage(options.message) /* when click, sets display message to messages I added to questions.js, didn't work when I put setDisplayMessage in handleClick so had to put it here instead*/}}>{options.title}</button>
+                 <button type="button" value={options.value} message={options.message} onClick={(event)=> {handleClick(event); setDisplayQuestionMessage(options.message) /* when click, sets display message to messages I added to questions.js, didn't work when I put setDisplayMessage in handleClick so had to put it here instead*/}}>{options.title}</button>
              )} 
         </li>
     )

@@ -15,9 +15,9 @@ export const questions = [
       {
         title: "Is their top colour...",
         submenu: [
-          { title: "red", value: "topColour/red", message: "Is they wearing a red top?"},
-          { title: "white", value: "topColour/white", message: "Is they wearing a white top?"},
-          { title: "black", value: "topColour/black", message: "Is they wearing a black top?"},
+          { title: "red", value: "topColour/red", message: "Are they wearing a red top?"},
+          { title: "white", value: "topColour/white", message: "Are they wearing a white top?"},
+          { title: "black", value: "topColour/black", message: "Are they wearing a black top?"},
         ],
       },
       {
