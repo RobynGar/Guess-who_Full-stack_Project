@@ -11,16 +11,36 @@
 	max-width: 100%;
 }
 
+
 .boardContainer {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 1fr 1fr 1fr;
 	background-color: rgb(202, 167, 224);
-	width: 70%;
+	width: 80%;
 	margin-left: 1rem;
 	border: 2px solid black;
 	grid-gap: 50 rem;
 	text-transform: capitalize;
+}
+
+.miniBoardContainer {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: 1fr 1fr 1fr;
+	background-color: rgb(202, 167, 224);
+	width: 90%;
+	/* margin-left: 1rem; */
+	border: 2px solid black;
+	grid-gap: 50 rem;
+}
+p{
+	font-size: xx-small;
+}
+
+.mini-eliminated {
+	border-color: red;
+	background-color: red;
 }
 
 .containerItems {
@@ -44,16 +64,22 @@ h4 {
 	margin-right: 65px;
 }
 
-#playerContainer{
+.winner {
+	border-color: gold;
+	background-color: gold;
+}
+
+#player-container{
 	display: flex;
-	/* flex-wrap: nowrap; */
+	flex-wrap: nowrap;
 	flex-direction: column;
+	justify-content: space-between;
 	width: 25%;
     margin-left: 5%;
 	background-color: #AAAAAA;
 	padding: 15px;
 	border-radius: 12px;
-	height: 600px;
+	height: 80%;
 	/* border: 2px red dashed; */
 }
 
@@ -80,7 +106,7 @@ h4 {
 
 .anon {
 	/* border: 2px black dashed;  */
-	width: 270px;
+	width: 100%;
 	height: 400px;
 	text-align: center;
 }
@@ -201,6 +227,7 @@ h3 {
 .eliminated {
 	background-color: red;
 }
+
 
 .dropdown .dropdown-submenu {
 	position: absolute;

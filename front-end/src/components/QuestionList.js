@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import Dropdown from "./Dropdown"
-import { questions } from "./questions";
 
 // MenuItem 
 const QuestionList = ({options, depthLevel, setQueryOption, setDisplayMessage}) => {

@@ -1,6 +1,7 @@
 import QuestionForm from "../components/QuestionForm";
 
-const TopBarContainer = ({compareQueryToBoard, displayMessage, startGame, chosenCharacter, setQueryOption, setDisplayMessage, makeGuess, setPlayerTurn, runComputerTurn}) => {
+const TopBarContainer = ({compareQueryToBoard, resetGame, displayMessage, playerTurn, startGame, chosenCharacter, setQueryOption, setDisplayMessage, makeGuess, setPlayerTurn, runComputerTurn, displayComputerMessage, setDisplayComputerMessage, setIsGuessing}) => {
+
 
 
     const handleStartClick = () => {
@@ -9,12 +10,19 @@ const TopBarContainer = ({compareQueryToBoard, displayMessage, startGame, chosen
         }
 
     }
+    // const handleGuessSubmitClick= () => {
+    //     makeGuess();
+
+    // }
     const handleGuessClick = () => {
-        setDisplayMessage('Click on a character you wish to guess')
-        if(makeGuess.name !== ""){
-           makeGuess(); 
-        }
+        setDisplayMessage('Click on a character then make a guess')
+        setIsGuessing(true);
     }
+
+    const handleResetClick = () => {
+        resetGame();
+    }
+
 
     // const handleCardClick = () => {
     //     if (computerCharacter.name !== ""){
@@ -31,9 +39,11 @@ const TopBarContainer = ({compareQueryToBoard, displayMessage, startGame, chosen
     return (
         <div id='questionForm'>
             <h2>{displayMessage}</h2>
-            <QuestionForm compareQueryToBoard={compareQueryToBoard} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn}/>
+             <h3>{displayComputerMessage}</h3>
+            <QuestionForm compareQueryToBoard={compareQueryToBoard} playerTurn={playerTurn} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn}/>
             <button className= "buttons" onClick={() => handleStartClick()}>Start game</button>
             <button className= "buttons" onClick={() => handleGuessClick()}>Make Guess</button>
+            <button className= "buttons" onClick={() => handleResetClick()}>Reset Game</button>
         </div>
         
     )
