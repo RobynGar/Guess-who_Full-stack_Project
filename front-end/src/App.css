@@ -1,16 +1,15 @@
-.game_title{
-	background-color: #A4CC98;
+.game_title {
+	background-color: #a4cc98;
 	margin-top: 0;
-	height: 100px;	
+	height: 100px;
 }
 
-.game_title_text{
+.game_title_text {
 	padding: 25px;
 }
 .card_image {
 	max-width: 100%;
 }
-
 
 .boardContainer {
 	display: grid;
@@ -34,7 +33,7 @@
 	border: 2px solid black;
 	grid-gap: 50 rem;
 }
-p{
+p {
 	font-size: xx-small;
 }
 
@@ -57,6 +56,14 @@ h4 {
 	margin: 10px 0;
 }
 
+.red {
+	color: red;
+}
+
+.grey {
+	color: grey;
+}
+
 .entireGame {
 	display: flex;
 	/* flex-wrap: wrap; */
@@ -69,29 +76,28 @@ h4 {
 	background-color: gold;
 }
 
-#player-container{
+#player-container {
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 25%;
-    margin-left: 5%;
-	background-color: #AAAAAA;
+	margin-left: 5%;
+	background-color: #aaaaaa;
 	padding: 15px;
 	border-radius: 12px;
 	height: 80%;
 	/* border: 2px red dashed; */
 }
 
-#topSection{
+#topSection {
 	/* display: inline-flex; */
 	/* flex-wrap: wrap; */
 	display: flex;
 	height: 10px;
-
 }
-#quesionButton{
- text-align: center;
+#quesionButton {
+	text-align: center;
 }
 
 .output-card {
@@ -129,27 +135,25 @@ h3 {
 	font-size: 1.5rem;
 }
 
-#questionForm{
+#questionForm {
 	/* border: 2px black dashed; */
 	text-align: center;
-	
 }
 
-.score{
+.score {
 	border: 2px black dashed;
-    height: fit-content;
+	height: fit-content;
 	width: 25%;
-    margin-left: 5%;
+	margin-left: 5%;
 }
-.buttons{
+.buttons {
 	text-align: center;
 	border-radius: 12px;
-	background-color: #A4CC98;
+	background-color: #a4cc98;
 	border: none;
 	padding: 10px;
 	font-size: large;
 	margin: 1%;
-
 }
 .dropdown {
 	display: none;
@@ -227,7 +231,6 @@ h3 {
 .eliminated {
 	background-color: red;
 }
-
 
 .dropdown .dropdown-submenu {
 	position: absolute;

@@ -169,6 +169,7 @@ function App() {
   const runComputerTurn = async () => {
     // if (playerTurn === 'computer') {
       setDisplayMessage("Computer's turn");
+      // setDisplayQuestionMessage("")
       if (remainingComputerCharacters.length <= 4){
         computerGuessAnswer();
       } else {
@@ -216,7 +217,7 @@ function App() {
     setDisplayQuestionMessage(compQuestions[random].message)
     setTimeout(() => {
       setDisplayQuestionMessage("")
-    }, 3000);
+    }, 4000);
     sendQueryRequest(computerQuery);
     // filter computer questions array and make a new array that 
     setComputerQuestions(computerQuestions.filter(query => query !== computerQuery))

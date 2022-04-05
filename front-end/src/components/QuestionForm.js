@@ -13,7 +13,11 @@ const QuestionForm = ({compareQueryToBoard, playerTurn, setQueryOption, setDispl
         //should change display message to '....' then a setTimer for 1 second then display message to 'True!' or 'False!' with another timer before editing the player cards if they are eliminated. Will look jarring if it all just happens instantly.
         // when they click submit, runs the compareQuery method in App.js
         compareQueryToBoard();
-        setPlayerTurn('computer');
+        setTimeout(() => {
+      setDisplayQuestionMessage("")
+      setPlayerTurn('computer');
+    }, 1000);
+        
         // console.log('changing to computer turn');
         // runComputerTurn();
         // console.log('pc did its turn');
