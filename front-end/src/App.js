@@ -140,7 +140,7 @@ function App() {
     setPlayerTurn(null)
     }
   }
-
+// make guess function
   const makeGuess = (guess) => {
     // setGuessCharacter(guess);
     // setDisplayMessage(`You are guessing ${guessCharacter.name}`)
