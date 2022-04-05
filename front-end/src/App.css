@@ -9,19 +9,38 @@
 }
 .card_image {
 	max-width: 100%;
+	/* object-fit: cover; */
 }
 
+
+
+/* inner grid - each character card */
+.board {
+	border: 3px solid white;
+}
 
 .boardContainer {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 1fr 1fr 1fr;
 	background-color: rgb(202, 167, 224);
-	width: 80%;
-	margin-left: 1rem;
+	width: 50%;
+	height: 50%;
+	margin-left: 20%;
 	border: 2px solid black;
 	grid-gap: 50 rem;
 	text-transform: capitalize;
+}
+
+.containerItems {
+	padding: 0.5rem;
+}
+
+.entireGame {
+	display: flex;
+	/* flex-wrap: wrap; */
+	justify-content: space-between;
+	margin-right: 65px;
 }
 
 .miniBoardContainer {
@@ -34,34 +53,10 @@
 	border: 2px solid black;
 	grid-gap: 50 rem;
 }
-p{
-	font-size: xx-small;
-}
 
 .mini-eliminated {
 	border-color: red;
 	background-color: red;
-}
-
-.containerItems {
-	padding: 0.5rem;
-}
-
-/* inner grid - each character card */
-.board {
-	border: 3px solid white;
-}
-
-h4 {
-	text-align: center;
-	margin: 10px 0;
-}
-
-.entireGame {
-	display: flex;
-	/* flex-wrap: wrap; */
-	justify-content: space-between;
-	margin-right: 65px;
 }
 
 .winner {
@@ -69,13 +64,25 @@ h4 {
 	background-color: gold;
 }
 
+
+p{
+	font-size: xx-small;
+}
+
+
+h4 {
+	text-align: center;
+	margin: 5px 0;
+	font-size: 20px;
+}
+
 #player-container{
 	display: flex;
 	flex-wrap: nowrap;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 25%;
-    margin-left: 5%;
+	width: 20%;
+    margin-right: 5%;
 	background-color: #AAAAAA;
 	padding: 15px;
 	border-radius: 12px;
