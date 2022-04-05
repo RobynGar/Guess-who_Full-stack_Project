@@ -44,7 +44,7 @@ function App() {
     setComputerCharacter(characterList[rand]);
   }
 
-  // confetti stuff 
+  // confetti stuff for win
 
  const canvasStyle = {
     position: "relative",
