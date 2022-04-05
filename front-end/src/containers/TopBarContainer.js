@@ -10,6 +10,9 @@ const TopBarContainer = ({compareQueryToBoard, resetGame, displayMessage, player
         if (chosenCharacter.name !== ""){
             startGame();
         }
+        else {
+            alert("Choose a character before you start!")
+        }
 
     }
     // const handleGuessSubmitClick= () => {
@@ -61,7 +64,7 @@ const TopBarContainer = ({compareQueryToBoard, resetGame, displayMessage, player
         <div id='questionForm'>
             <h2>{displayMessage}</h2>
              <h3 className={`${questionColour}`}>{displayQuestionMessage}</h3>
-            <QuestionForm compareQueryToBoard={compareQueryToBoard} playerTurn={playerTurn} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn} setDisplayQuestionMessage={setDisplayQuestionMessage}/>
+            <QuestionForm compareQueryToBoard={compareQueryToBoard} playerTurn={playerTurn} setQueryOption={setQueryOption} setDisplayMessage={setDisplayMessage} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn} setDisplayQuestionMessage={setDisplayQuestionMessage} chosenCharacter={chosenCharacter}/>
             <button className= "buttons" onClick={() => handleStartClick()}>Start game</button>
             <button className= "buttons" onClick={() => handleGuessClick()}>Make Guess</button>
             <button className= "buttons" onClick={() => handleResetClick()}>Reset Game</button>

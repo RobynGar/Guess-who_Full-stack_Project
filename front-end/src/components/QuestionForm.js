@@ -1,23 +1,28 @@
 import { useState } from "react"
+import ChosenCharacter from "./ChosenCharacter";
 import QuestionList from "./QuestionList"
 import { questions } from "./questions"
 
 
 
-const QuestionForm = ({compareQueryToBoard, playerTurn, setQueryOption, setDisplayMessage, setPlayerTurn, runComputerTurn, setDisplayQuestionMessage}) => {   // this is like our navBar
+const QuestionForm = ({compareQueryToBoard, playerTurn, setQueryOption, setDisplayMessage, setPlayerTurn, runComputerTurn, setDisplayQuestionMessage, chosenCharacter}) => {   // this is like our navBar
 
 
     const depthLevel = 0;
 
     const submitQuestion = () => {
+        if(chosenCharacter.name === "") {
+            alert("Choose a character before you can ask a question ")
+        } else {
         //should change display message to '....' then a setTimer for 1 second then display message to 'True!' or 'False!' with another timer before editing the player cards if they are eliminated. Will look jarring if it all just happens instantly.
         // when they click submit, runs the compareQuery method in App.js
         compareQueryToBoard();
         setTimeout(() => {
       setDisplayQuestionMessage("")
       setPlayerTurn('computer');
-    }, 1000);
-        
+      setDisplayMessage("Computer's turn")
+    }, 2000);
+}
         // console.log('changing to computer turn');
         // runComputerTurn();
         // console.log('pc did its turn');

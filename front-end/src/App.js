@@ -121,6 +121,9 @@ function App() {
 
   const startGame = () => {
     // when game starts, random opponent character is chosen
+    // if(chosenCharacter.name === "") {
+    //   alert("Choose a Character before you start!")
+    // }
     chooseCompChar();
     // and display message changes to prompt player's first turn
     setDisplayMessage('Select a question from the options below:')
@@ -172,6 +175,11 @@ function App() {
       // setDisplayQuestionMessage("")
       if (remainingComputerCharacters.length <= 4){
         computerGuessAnswer();
+        setDisplayQuestionMessage("Guessing...");
+        setTimeout(() => {
+          setDisplayQuestionMessage("");
+        }, 4000);
+        
       } else {
         await makeRandomQuestion();
         compareQueryToBoard();
