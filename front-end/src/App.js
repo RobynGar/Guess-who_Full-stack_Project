@@ -1,11 +1,12 @@
 
 import './App.css';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef, useCallback} from 'react';
 import BoardContainer from './containers/BoardContainer';
 import PlayerContainer from './containers/PlayerContainer';
 import TopBarContainer from './containers/TopBarContainer';
 import { questions } from './components/questions';
 import { compQuestions} from './components/compQuestions';
+import ReactCanvasConfetti from "react-canvas-confetti";
 
 
 function App() {
@@ -26,7 +27,9 @@ function App() {
   const[displayComputerMessage, setDisplayComputerMessage] = useState("");
   const[playerTurn, setPlayerTurn] = useState('player');
   const[gameWon, setGameWon] = useState('');
-  
+
+  const [isGuessing, setIsGuessing] = useState(false);
+
 
   const resetGame = () => {
     setCharacterList([]); setChosenCharacter({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""}) ; setComputerCharacter({name:"", gender:"", hair_colour:"", eye_colour:"", glasses: false, piercings: false, beard: false, london: false, pets: false, hair_accessory: false, top_colour: ""}) ;
@@ -54,6 +57,68 @@ function App() {
     setChosenCharacter(selected);
   }
 
+
+
+  // confetti stuff for win
+
+ const canvasStyle = {
+    position: "relative",
+    PointerEvent: "none",
+    width: "100%",
+    height: "100%",
+    top: 0,
+    left: 0
+   };
+
+
+  const refAnimationInstance = useRef(null);
+
+  const getInstance = useCallback((instance)=> {
+    refAnimationInstance.current = instance;
+  }, [])
+
+  const makeShot = useCallback((particleRatio, opts) => {
+    refAnimationInstance.current &&
+      refAnimationInstance.current({
+        ...opts,
+        origin: { y: 0.7 },
+        particleCount: Math.floor(200 * particleRatio)
+      });
+  }, []);
+
+  const fire = useCallback(() => {
+    makeShot(0.25, {
+      spread: 26,
+      startVelocity: 55
+    });
+
+    makeShot(0.2, {
+      spread: 60
+    });
+
+    makeShot(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8
+    });
+
+    makeShot(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2
+    });
+
+    makeShot(0.1, {
+      spread: 120,
+      startVelocity: 45
+    });
+  }, [makeShot]);
+
+
+
+  
+
   const startGame = () => {
     // when game starts, random opponent character is chosen
     chooseCompChar();
@@ -61,6 +126,7 @@ function App() {
     setDisplayMessage('Select a question from the options below:')
   }
 
+  
   const chooseCompChar = () => {
     // get random number between 0 and 14
     let rand = Math.floor(Math.random() * characterList.length);
@@ -82,10 +148,11 @@ function App() {
       if(guess.id === computerCharacter.id){
         setGameWon('player');
         setDisplayMessage(`Congratulations, it was ${guess.name}!`);
-        
-            var audio = new Audio('../win.mp3');
-    audio.play();
+        fire()
+        var audio = new Audio('../win.mp3');
+        audio.play();
         playWin();
+
       // } else if (guessCharacter.name === ""){
       } else {
         setDisplayMessage(`${guess.name} is incorrect, try again`);
@@ -94,6 +161,7 @@ function App() {
       }
     }
   }
+
 
 
 //uncommented comparequerytoboard
@@ -266,7 +334,6 @@ function App() {
     }
   }
 
-  
 
   useEffect(fetchRandomCharacters, []);
   useEffect(() => sendQueryRequest(queryOption), [queryOption]);
@@ -277,12 +344,14 @@ function App() {
     <>
       <div className="game_title">
       <h1 className="game_title_text">??Guess Who??</h1>
+      <ReactCanvasConfetti refConfetti={getInstance} style={canvasStyle}/>
       </div>
-      <TopBarContainer compareQueryToBoard={compareQueryToBoard} resetGame={resetGame} playerTurn={playerTurn} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn} displayComputerMessage={displayComputerMessage} setDisplayComputerMessage={setDisplayComputerMessage}/>
+      <TopBarContainer compareQueryToBoard={compareQueryToBoard} resetGame={resetGame} playerTurn={playerTurn} displayMessage={displayMessage} setDisplayMessage={setDisplayMessage} startGame={startGame} chosenCharacter={chosenCharacter} setQueryOption={setQueryOption} makeGuess={makeGuess} setPlayerTurn={setPlayerTurn} runComputerTurn={runComputerTurn} displayComputerMessage={displayComputerMessage} setDisplayComputerMessage={setDisplayComputerMessage} setIsGuessing={setIsGuessing}/>
       <div className='entireGame'>
-      <BoardContainer gameWon={gameWon} remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess}/>
+      <BoardContainer gameWon={gameWon} remainingCharacters={remainingCharacters} characterList={characterList} choosePlayerCharacter={choosePlayerCharacter} computerCharacter={computerCharacter} makeGuess={makeGuess} isGuessing={isGuessing} setIsGuessing={setIsGuessing}/>
       <PlayerContainer  characterList={characterList} queryCharacters={queryCharacters} chosenCharacter={chosenCharacter} startGame={startGame} setQueryOption={setQueryOption} remainingComputerCharacters={remainingComputerCharacters}/>
       {/* <h2>Your character is: {chosenCharacter.name}</h2>*/}
+
       </div>
       <h2>PC character is: {computerCharacter.name}</h2> 
     </>
